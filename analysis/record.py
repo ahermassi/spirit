@@ -3,8 +3,8 @@
 # (C) 2017  Jean Nassar
 # Released under MIT
 from __future__ import print_function
+import argparse
 import os
-import sys
 
 import rosbag
 
@@ -27,16 +27,16 @@ ROSBAG_TOPICS = [
 
 
 def parse_args():
-    if len(sys.argv) != 3:
-        print("Please have experiment type (0 for no SPIRIT, 1 for SPIRIT only,"
-              " 2 for both camera and SPIRIT), experimenter id (0 to 99), as "
-              "arguments.")
-        sys.exit(1)
-    _, experiment_type, experimenter_id = sys.argv
-    return experiment_type, experimenter_id
+    parser = argparse.ArgumentParser(description="Record bag files.")
+    parser.add_argument("experiment_type", action="store",
+        help=("Experiment type: 0 for camera alone, 1 for SPIRIT alone, and 2" +
+              " for camera and SPIRIT together."))
+    parser.add_argument("experimenter_id", action="store",
+        help="Experimenter ID, as an int.")
+    return parser.parse_args()
 
 
-def get_filename(experiment_type, experimenter_id):
+def get_next_filename(experiment_type, experimenter_id):
     run_number = 0
     filename_base = os.path.join(BAG_FOLDER, "experiment-{:d}_user-{:02d}_run-"
         .format(int(experiment_type), int(experimenter_id)))
@@ -51,8 +51,10 @@ def record(arguments):
 
 
 def main():
-    experiment_type, experimenter_id = parse_args()
-    filename = get_filename(experiment_type, experimenter_id)
+    args = parse_args()
+
+    filename = get_next_filename(args.experiment_type, args.experimenter_id)
+
     arguments = ROSBAG_TOPICS + ["-O", filename]
     record(arguments)
 
