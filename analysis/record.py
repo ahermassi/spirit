@@ -8,7 +8,8 @@ import sys
 
 import rosbag
 
-FOLDER = "bagfiles"
+
+BAG_FOLDER = "bagfiles"
 ROSBAG_TOPICS = [
     "/ardrone/ground_pose",
     "/ardrone/imu",
@@ -37,7 +38,7 @@ def parse_args():
 
 def get_filename(experiment_type, experimenter_id):
     run_number = 0
-    filename_base = os.path.join(FOLDER, "experiment-{:d}_user-{:02d}_run-"
+    filename_base = os.path.join(BAG_FOLDER, "experiment-{:d}_user-{:02d}_run-"
         .format(int(experiment_type), int(experimenter_id)))
     while os.path.exists(filename_base + "{:02d}.bag".format(run_number)):
         run_number += 1
