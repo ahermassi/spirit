@@ -29,8 +29,10 @@ ROSBAG_TOPICS = [
 def parse_args():
     parser = argparse.ArgumentParser(description="Record bag files.")
     parser.add_argument("experiment_type", action="store",
-        help=("Experiment type: 0 for camera alone, 1 for SPIRIT alone, 2 for" +
-              " camera and SPIRIT together, and 4 for line-of-sight."))
+        help=("Experiment type: 0 for camera alone, 1 for SPIRIT alone, 2 for " 
+              "camera and SPIRIT together, and 4 for line-of-sight. Add 5 to "
+              "the experiment type to indicate an experiment performed with "
+              "obstacles."))
     parser.add_argument("experimenter_id", action="store",
         help="Experimenter ID, as an int.")
     return parser.parse_args()
