@@ -9,7 +9,7 @@ TLX_COMPONENTS = [
     "effort",
     "frustration",
 ]
-ExperimentType = Enum("ExperimentType", "Live Spirit Combined")
+ExperimentType = Enum("ExperimentType", "Onboard Spirit Combined")
 
 
 class User(object):

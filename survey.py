@@ -41,7 +41,7 @@ class MyApp(App):
 
         self.save_location_label = gui.Label(f"Saving to {self.save_location}", margin="10px")
 
-        self.table = gui.Table.new_from_list([("ID", "Name", "Live", "SPIRIT", "Both")],
+        self.table = gui.Table.new_from_list([("ID", "Name", "Onboard", "SPIRIT", "Both")],
             width=300, margin="10px")
 
         select_user_label = gui.Label("Select a user:", margin="10px")
@@ -81,7 +81,7 @@ class MyApp(App):
         self.table.empty(keep_title=True)
         self.table.append_from_list([
                 (user.id_, user.name,
-                    len([x for x in user.experiments if x.type_ == ExperimentType.Live]),
+                    len([x for x in user.experiments if x.type_ == ExperimentType.Onboard]),
                     len([x for x in user.experiments if x.type_ == ExperimentType.Spirit]),
                     len([x for x in user.experiments if x.type_ == ExperimentType.Combined])
                 ) for user in self.users])
@@ -161,12 +161,12 @@ class MyApp(App):
 
     def run_random_experiment(self, widget, user):
         ran_types = {experiment.type_ for experiment in user.experiments}
-        if (ExperimentType.Live in ran_types) and (ExperimentType.Spirit in ran_types):
+        if (ExperimentType.Onboard in ran_types) and (ExperimentType.Spirit in ran_types):
             self.run_experiment(widget, user, choice(list(ExperimentType)))
-        elif (ExperimentType.Live not in ran_types) and (ExperimentType.Spirit not in ran_types):
-            self.run_experiment(widget, user, choice([ExperimentType.Live, ExperimentType.Spirit]))
-        elif ExperimentType.Live not in ran_types:
-            self.run_experiment(widget, user, ExperimentType.Live)
+        elif (ExperimentType.Onboard not in ran_types) and (ExperimentType.Spirit not in ran_types):
+            self.run_experiment(widget, user, choice([ExperimentType.Onboard, ExperimentType.Spirit]))
+        elif ExperimentType.Onboard not in ran_types:
+            self.run_experiment(widget, user, ExperimentType.Onboard)
         else:
             self.run_experiment(widget, user, ExperimentType.Spirit)
 
