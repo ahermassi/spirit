@@ -28,7 +28,7 @@ class User(object):
         return self.name
     
     def __repr__(self):
-        return f"User({self.id}, {self.name})"
+        return f"User(#{self.id_}, {self.name})"
 
 
 class Experiment(object):
@@ -39,7 +39,7 @@ class Experiment(object):
         self.tlx = tlx
 
     def __repr__(self):
-        return f"Experiment({self.type_}, {self.user.id})"
+        return f"Experiment({self.type_.name}, User #{self.user.id_})"
 
 
 class TlxComponent(object):
@@ -90,11 +90,11 @@ class Question(object):
 
 class Survey(object):
     _questions = {
-        "pos_under": "Your understanding of the position of the drone",
-        "orient_under": "Your understanding of the orientation of the drone",
-        "spacial_under": "Your understanding of the spacial relationship between the drone and the target",
-        "pos_control": "Your control of the position of the drone",
-        "orient_control": "Your control of the orientation of the drone",
+        "position_understanding": "Your understanding of the position of the drone",
+        "orientation_understanding": "Your understanding of the orientation of the drone",
+        "spacial_understanding": "Your understanding of the spacial relationship between the drone and the target",
+        "position_control": "Your control of the position of the drone",
+        "orientation_control": "Your control of the orientation of the drone",
         "spacial_control": "Your ability to stay above the target",
     }
 
