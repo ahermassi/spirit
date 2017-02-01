@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from itertools import combinations
 import pickle
 from random import choice, shuffle
