@@ -5,7 +5,8 @@ from random import choice, shuffle
 
 from remi import gui, start, App
 
-from survey_utils import ExperimentType, User, Experiment, TlxComponent, Tlx
+from survey_utils import (ExperimentType, User, Experiment, TlxComponent, Tlx,
+                          Question, Survey)
 
 
 class MyApp(App):
@@ -177,7 +178,12 @@ class MyApp(App):
         tlx_button.set_on_click_listener(self.do_tlx, user, type_)
         self.dialog.add_field("dtlxbutton", tlx_button)
 
-        self.survey = None
+        survey_button = gui.Button("Survey")
+        survey_button.set_on_click_listener(self.do_survey, user, type_)
+        self.dialog.add_field("dsurveybutton", survey_button)
+
+        self.survey = Survey()
+        self.survey_sliders = {}
         self.tlx = Tlx()
         self.tlx_sliders = {}
 
@@ -192,7 +198,7 @@ class MyApp(App):
         for component in self.tlx.components.values():
             self.dialog.add_field(component.code, gui.Label(f"{component.name}: {component.description}", margin="10px"))
             slider = gui.Slider(component.score, 0, 20, 1, width="80%")
-            slider.set_oninput_listener(self.slider_changed, component.code)
+            slider.set_oninput_listener(self.tlx_slider_changed, component.code)
             slider_value = gui.Label(slider.get_value(), margin="10px")
             self.tlx_sliders[component.code] = (slider, slider_value)
             box = gui.Widget(width="100%", layout_orientation=gui.Widget.LAYOUT_HORIZONTAL, height=50)
@@ -203,13 +209,38 @@ class MyApp(App):
         self.dialog.set_on_confirm_dialog_listener(self.tlx_done, user, type_)
         self.dialog.show(self)
 
-    def slider_changed(self, widget, value, code):
+    def tlx_slider_changed(self, widget, value, code):
         self.tlx_sliders[code][1].set_text(value)
 
     def tlx_done(self, widget, user, type_):
         for code, (slider, slider_value) in self.tlx_sliders.items():
             self.tlx.components[code].score = int(slider_value.get_text())
         self._tlx_weighting(user, type_)
+
+
+    def do_survey(self, widget, user, type_):
+        self.dialog = gui.GenericDialog(title="Survey", message=f"Survey for the {type_.name} view experiment performed by {user.name}", width="600px")
+
+        for question in self.survey.questions.values():
+            self.dialog.add_field(question.code, gui.Label(f"{question.description}", margin="10px"))
+            slider = gui.Slider(question.score, 1, 5, 1, width="80%")
+            slider.set_oninput_listener(self.survey_slider_changed, question.code)
+            slider_value = gui.Label(slider.get_value(), margin="10px")
+            self.survey_sliders[question.code] = (slider, slider_value)
+            box = gui.Widget(width="100%", layout_orientation=gui.Widget.LAYOUT_HORIZONTAL, height=50)
+            box.append(slider_value)
+            box.append(slider)
+            self.dialog.add_field(question.code + "_score", box)
+
+        self.dialog.set_on_confirm_dialog_listener(self.survey_done, user, type_)
+        self.dialog.show(self)
+
+    def survey_slider_changed(self, widget, value, code):
+        self.survey_sliders[code][1].set_text(value)
+
+    def survey_done(self, widget, user, type_):
+        for code, (slider, slider_value) in self.survey_sliders.items():
+            self.survey.questions[code].score = int(slider_value.get_text())
 
     def _tlx_weighting(self, user, type_):
         self.all_combos = list(list(pair) for pair in combinations(self.tlx.components.keys(), 2))

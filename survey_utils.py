@@ -64,3 +64,27 @@ class Tlx(object):
         for name, description in self._components.items():
             component = TlxComponent(name, description)
             self.components[component.code] = component
+
+
+class Question(object):
+    def __init__(self, code, description):
+        self.code = code
+        self.description = description
+        self.score = 1
+
+
+class Survey(object):
+    _questions = {
+        "pos_under": "Your understanding of the position of the drone",
+        "orient_under": "Your understanding of the orientation of the drone",
+        "spacial_under": "Your understanding of the spacial relationship between the drone and the target",
+        "pos_control": "Your control of the position of the drone",
+        "orient_control": "Your control of the orientation of the drone",
+        "spacial_control": "Your ability to stay above the target",
+    }
+
+    def __init__(self):
+        self.questions = {}
+        for code, description in self._questions.items():
+            question = Question(code, description)
+            self.questions[code] = question
