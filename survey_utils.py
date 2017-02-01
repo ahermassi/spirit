@@ -26,6 +26,9 @@ class User(object):
 
     def __str__(self):
         return self.name
+    
+    def __repr__(self):
+        return f"User({self.id}, {self.name})"
 
 
 class Experiment(object):
@@ -34,6 +37,9 @@ class Experiment(object):
         self.type_ = type_
         self.survey = survey
         self.tlx = tlx
+
+    def __repr__(self):
+        return f"Experiment({self.type_}, {self.user.id})"
 
 
 class TlxComponent(object):
@@ -47,6 +53,9 @@ class TlxComponent(object):
     @property
     def weighted_score(self):
         return self.score * self.weight
+
+    def __repr__(self):
+        return f"Component({self.code}, {self.weighted_score})"
 
 
 class Tlx(object):
@@ -65,12 +74,18 @@ class Tlx(object):
             component = TlxComponent(name, description)
             self.components[component.code] = component
 
+    def __repr__(self):
+        return "<Tlx()>"
+
 
 class Question(object):
     def __init__(self, code, description):
         self.code = code
         self.description = description
         self.score = 1
+
+    def __repr__(self):
+        return f"Question({self.code}, {self.score})"
 
 
 class Survey(object):
@@ -88,3 +103,6 @@ class Survey(object):
         for code, description in self._questions.items():
             question = Question(code, description)
             self.questions[code] = question
+
+    def __repr__(self):
+        return "<Survey()>"
