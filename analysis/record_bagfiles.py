@@ -14,15 +14,15 @@ ROSBAG_TOPICS = [
     "/ardrone/ground_pose",
     "/ardrone/imu",
     "/ardrone/navdata",
-    "/ardrone/odometry",
-    "/ardrone/past_image",
+    # "/ardrone/odometry",
+    # "/ardrone/past_image",
     "/ardrone/past_pose",
     "/ardrone/pose",
-    "/ardrone/slow_image_raw",
+    # "/ardrone/slow_image_raw",
     "/ardrone/tracked",
     "/ardrone/arrived",
-    "/rosout",
-    "/rosout_agg",
+    # "/rosout",
+    # "/rosout_agg",
 ]
 
 
