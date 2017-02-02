@@ -100,6 +100,7 @@ class Survey(object):
 
     def __init__(self):
         self.questions = {}
+        self.longform = ""
         for code, description in self._questions.items():
             question = Question(code, description)
             self.questions[code] = question

@@ -232,6 +232,11 @@ class MyApp(App):
             box.append(slider)
             self.dialog.add_field(question.code + "_score", box)
 
+        self.longform = gui.TextInput(single_line=False, hint="What other things would you like to say?", height="100px", margin="10px")
+
+        self.dialog.add_field("dlongformlabel", gui.Label("Other feedback:", margin="10px"))
+        self.dialog.add_field("dlongform", self.longform)
+
         self.dialog.set_on_confirm_dialog_listener(self.survey_done, user, type_)
         self.dialog.show(self)
 
@@ -241,6 +246,7 @@ class MyApp(App):
     def survey_done(self, widget, user, type_):
         for code, (slider, slider_value) in self.survey_sliders.items():
             self.survey.questions[code].score = int(slider_value.get_text())
+        self.survey.longform = self.longform.get_text()
 
     def _tlx_weighting(self, user, type_):
         self.all_combos = list(list(pair) for pair in combinations(self.tlx.components.keys(), 2))
