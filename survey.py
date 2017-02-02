@@ -223,7 +223,7 @@ class MyApp(App):
 
         for question in self.survey.questions.values():
             self.dialog.add_field(question.code, gui.Label(f"{question.description}", margin="10px"))
-            slider = gui.Slider(question.score, 1, 5, 1, width="80%")
+            slider = gui.Slider(question.score, 1, 7, 1, width="80%")
             slider.set_oninput_listener(self.survey_slider_changed, question.code)
             slider_value = gui.Label(slider.get_value(), margin="10px")
             self.survey_sliders[question.code] = (slider, slider_value)
