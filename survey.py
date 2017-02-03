@@ -193,7 +193,7 @@ class MyApp(App):
         self.dialog.show(self)
 
     def do_tlx(self, widget, user, type_):
-        self.dialog = gui.GenericDialog(title="NASA-TLX", message=f"NASA Task Load Index for the {type_.name} view experiment performed by {user.name}", width="600px")
+        self.dialog = gui.GenericDialog(title="NASA-TLX", message=f"NASA Task Load Index for the {type_.name} view experiment performed by {user.name}. How much did each component contribute to your task load? (scale from 0 to 20)", width="600px")
 
         for component in self.tlx.components.values():
             self.dialog.add_field(component.code, gui.Label(f"{component.name}: {component.description}", margin="10px"))
@@ -219,7 +219,7 @@ class MyApp(App):
 
 
     def do_survey(self, widget, user, type_):
-        self.dialog = gui.GenericDialog(title="Survey", message=f"Survey for the {type_.name} view experiment performed by {user.name}", width="600px")
+        self.dialog = gui.GenericDialog(title="Survey", message=f"Survey for the {type_.name} view experiment performed by {user.name}. How would you rate each item? (scale from 1 to 7)", width="600px")
 
         for question in self.survey.questions.values():
             self.dialog.add_field(question.code, gui.Label(f"{question.description}", margin="10px"))
@@ -256,14 +256,14 @@ class MyApp(App):
         self.weight_index = 0
         self.pair = ["", ""]
 
-        self.dialog = gui.GenericDialog(title="NASA-TLX Weighting", message=f"NASA Task Load Index for the {type_.name} view experiment performed by {user.name}", width="300px")
+        self.dialog = gui.GenericDialog(title="NASA-TLX Weighting", message=f"NASA Task Load Index for the {type_.name} view experiment performed by {user.name}. Which component do you feel contributed more to your task load?", width="300px")
 
         self.weight_progress_label = gui.Label(f"1/{len(self.all_combos)}")
         self.dialog.add_field("dweightprogress", self.weight_progress_label)
 
         box = gui.HBox(width="100%", height=50, margin="10px")
-        self.button_left = gui.Button("")
-        self.button_right = gui.Button("")
+        self.button_left = gui.Button("", margin="10px")
+        self.button_right = gui.Button("", margin="10px")
         box.append(self.button_left)
         box.append(self.button_right)
         self.dialog.add_field("dweightbox", box)
