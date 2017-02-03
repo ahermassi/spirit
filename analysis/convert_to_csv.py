@@ -21,6 +21,10 @@ BAG_DIR = "bagfiles"
 CSV_DIR = "csv"
 
 
+if not os.path.exists(CSV_DIR):
+    os.makedirs(CSV_DIR)
+
+
 def load_bag(filename, include=TOPICS_SUMMARIZED, column_names=COLUMN_NAMES):
     df = rosbag_pandas.bag_to_dataframe(filename, include=include)
     pad_bag(df)
