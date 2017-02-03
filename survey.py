@@ -335,6 +335,7 @@ class MyApp(App):
     def _load(self, filename):
         with open(filename, "rb") as fin:
             self.users = pickle.load(fin)
+        User.count = max(user.id_ for user in self.users) + 1
         self.update_table()
         self.update_user_list()
 
