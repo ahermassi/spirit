@@ -1,0 +1,2 @@
+pywebview==1.4
+remi==0.1
