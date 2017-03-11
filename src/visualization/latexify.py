@@ -96,7 +96,7 @@ def fig_size(fig_width_tw=None, fig_ratio=None, fig_height=None, n_columns=1,
     return fig_width, fig_height
 
 
-def savefig(filename, folder="img", from_context=False, exts=("pgf", "pdf")):
+def save_fig(filename, folder="img", from_context=False, exts=("pgf", "pdf")):
     if not from_context:
         print(f"Saving {filename}...  ")
     plt.tight_layout(0)
@@ -113,7 +113,7 @@ def figure(filename, folder="../img/plots", size=fig_size(),
     print("  Plotting...")
     yield
     plt.gcf().set_size_inches(*size)
-    savefig(filename, folder=folder, from_context=True, exts=exts)
+    save_fig(filename, folder=folder, from_context=True, exts=exts)
     plt.close()
 
 
