@@ -11,7 +11,7 @@ import tqdm
 TOPICS_SUMMARIZED = [
     "/ardrone/arrived",
     "/ardrone/ground_pose",
-    "/ardrone/pose"
+    "/ardrone/pose",
 ]
 
 COLUMN_NAMES = ["arrived", "angle", "gx", "gy",
