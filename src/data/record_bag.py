@@ -9,7 +9,7 @@ import os
 import rosbag
 
 
-BAG_DIR = "data/raw"
+BAG_DIR = "../data/raw"
 ROSBAG_TOPICS = [
     "/ardrone/ground_pose",
     "/ardrone/imu",
