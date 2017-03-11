@@ -350,9 +350,10 @@ def load_surveys():
 
 
 def _load_users(data):
-    users = pd.DataFrame({"user_id": user.id_, "name": user.name,
-                          "age": user.age, "teleop": user.teleop,
-                          "flying": user.flying} for user in data)
+    return pd.DataFrame({"user_id": user.id_, "name": user.name,
+                         "age": user.age, "gender": user.gender,
+                         "teleop": user.teleop, "flying": user.flying}
+                        for user in data)
 
 
 def _parse_tlx_component(component):
