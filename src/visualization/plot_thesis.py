@@ -286,12 +286,12 @@ def do_surveys():
 
 
 def do_differences(recalculate=False):
-    trace_cols = ["duration", "dist_err", "x_err", "y_err", "rms_x", "rms_y"]
-    trace_coeffs = [[(5, 50), 50]] + [[(0, 2), 0.5]]*5
-    trace_cols = ["path_length", "move_l", "move_r", "move_x", "move_b",
+    trace_cols = ["duration", "dist_err", "x_err", "y_err", "rms_x", "rms_y",
+                  "path_length", "move_l", "move_r", "move_x", "move_b",
                   "move_f", "move_y"]
-    trace_coeffs = [[(0, 10), 10], [(0, 5), 3], [(0, 5), 3], [(0, 10), 6],
-                    [(0, 5), 1.5], [(0, 5), 7], [(0, 10), 9]]
+    trace_coeffs = ([[(5, 50), 50]] + [[(0, 2), 0.5]]*5
+                    + [[(0, 10), 10], [(0, 5), 3], [(0, 5), 3], [(0, 10), 6],
+                       [(0, 5), 1.5], [(0, 5), 7], [(0, 10), 9]])
 
     if recalculate:
         traces = analyze_differences(analyses, trace_cols, trace_coeffs)
@@ -329,4 +329,4 @@ if __name__ == "__main__":
     do_surveys()
 
     # WARNING: Takes a long time with recalculate.
-    do_differences()
+    # do_differences()
