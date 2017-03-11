@@ -18,6 +18,7 @@ from ..data.survey_utils import ExperimentType
 DATA_DIR = Path(__file__).parent.joinpath("../../data")
 SURVEY_DIR = DATA_DIR.joinpath("raw")
 CSV_DIR = DATA_DIR.joinpath("interim")
+BEST_DIR = Path(__file__).parent.joinpath("../../models")
 
 
 # Named Tuples
@@ -483,13 +484,13 @@ def analyze_differences(df, columns, params, n_iter=2000, n_jobs=2,
         if show_summaries:
             summarize(best_result, plot=plot)
         if save:
-            with open(f"best_{column}.dat", "wb") as fout:
+            with open(BEST_DIR.joinpath(f"best_{column}.pkl"), "wb") as fout:
                 pickle.dump(best_result, fout)
     return traces
 
 
 def load_best_result(column):
-    with open(f"best_{column}.dat", "rb") as fin:
+    with open(BEST_DIR.joinpath(f"best_{column}.pkl"), "rb") as fin:
         return pickle.load(fin)
 
 
