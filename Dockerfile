@@ -26,7 +26,7 @@ WORKDIR /root/catkin_ws/src
 RUN git clone https://github.com/ros-drivers/mocap_optitrack.git
 RUN git clone https://github.com/bosch-ros-pkg/usb_cam.git
 
-COPY spirit/ /root/catkin_ws/src/spirit
+COPY src/ros/spirit/ /root/catkin_ws/src/spirit
 
 WORKDIR /root/catkin_ws
 RUN /ros_entrypoint.sh rosdep install --from-paths src -iy
