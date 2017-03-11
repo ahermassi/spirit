@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+docker commit `docker ps -lq` ${1:-"spirit_dev:v2"}

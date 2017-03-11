@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<launch xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="params" value="${load_yaml('../../config/.launch_params.yaml')}"/>
+
+    <xacro:macro name="joystick_gui" >
+        <node name="joy_node"
+              pkg="joy"
+              type="joy_node"
+              output="screen"
+              clear_params="true" >
+            <param name="dev" type="str" value="/dev/input/js${params['control']['js_number']}" />
+        </node>
+
+	    <node name="joystick_controller"
+              pkg="spirit"
+              type="joystick_controller.py"
+              output="screen"
+              required="true">
+
+	      <param name="ButtonLand" value="${params['control']['button']['land']}" />
+	      <param name="ButtonArrived" value="${params['control']['button']['arrived']}" />
+	      <param name="ButtonTakeoff" value="${params['control']['button']['takeoff']}" />
+	      <param name="ButtonEmergency" value="${params['control']['button']['emergency']}" />
+
+	      <param name="AxisRoll" value="${params['control']['axis']['roll']}" />
+	      <param name="AxisPitch" value="${params['control']['axis']['pitch']}" />
+	      <param name="AxisYaw" value="${params['control']['axis']['yaw']}" />
+	      <param name="AxisZ" value="${params['control']['axis']['z']}" />
+
+	      <param name="ScaleRoll" value="${params['control']['scale']['roll']}" />
+	      <param name="ScalePitch" value="${params['control']['scale']['pitch']}" />
+	      <param name="ScaleYaw" value="${params['control']['scale']['yaw']}" />
+	      <param name="ScaleZ" value="${params['control']['scale']['z']}" />
+
+	    </node>
+    </xacro:macro>
+
+    <xacro:if value="${params['control']['use_joystick']}">
+        <xacro:joystick_gui />
+    </xacro:if>
+</launch>
