@@ -862,8 +862,8 @@ def test_offline(size=(640, 480)):
 
     pos_cam = [0, 0, 0]
     rot_cam = [0, 0, 0, 1]
-    pos_drone = [0, -3, 0]
-    rot_drone = [-0.2, 0, 0, 1]
+    pos_drone = [0, -1.5, 0]
+    rot_drone = [0.1, 0, 0, 1]
     # pos_cam = [-0.5700, 0.08365, 0.0837]
     # rot_cam = [0.0006, 0.0042, 0.0166, 0.9999]
     # pos_drone = [-0.4767, 1.3597, 0.0770]
