@@ -322,4 +322,4 @@ sympy-plots-for-*.tex/
 .directory
 
 # dot2tex
-img/*dot2tex*
+reports/thesis/img/*dot2tex*
