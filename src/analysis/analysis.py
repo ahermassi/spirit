@@ -2,15 +2,22 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 from collections import namedtuple
-from enum import Enum
 import glob
 import pickle
+from pathlib import Path
 import re
 
 import numpy as np
 import pandas as pd
 import seaborn.apionly as sns
 import pymc3 as pm
+
+from ..data.survey_utils import ExperimentType
+
+
+DATA_DIR = Path(__file__).parent.joinpath("../../data")
+SURVEY_DIR = DATA_DIR.joinpath("raw")
+CSV_DIR = DATA_DIR.joinpath("interim")
 
 
 # Named Tuples
@@ -23,13 +30,6 @@ TARGET = Coords(0, 6)
 # Regexes
 FILENAME_PATTERN = "experiment-(\d)_user-(\d+)_run-(\d+)"
 filename_regex = re.compile(pattern=FILENAME_PATTERN)
-
-# Enums
-DroneState = Enum("DroneState",
-                  "Emergency Inited Landed Flying Hovering Test"
-                  "TakingOff GotoHover Landing Looping".split(),
-                  start=0)
-ExperimentType = Enum("ExperimentType", "Onboard Spirit Combined LineOfSight")
 
 
 def change_color(color, saturation=0, value=0):
@@ -158,8 +158,6 @@ def plot_targets(p_init=Coords(0, 0), p_final=Coords(0, 0),
     ax = plt.gca()
     
     if target_coords is None:
-        if target_coord_offsets is None:
-            target_coord_offsets = TARGET_COORD_OFFSETS
         target_coords = [Coords(p_init.x - offset.x, p_init.y - offset.y)
                          for offset in target_coord_offsets]
     
@@ -205,7 +203,7 @@ def distance(df, target):
 
 
 def usable_filenames():
-    filenames = sorted([filename for filename in glob.glob("csv/*.csv")
+    filenames = sorted([filename for filename in glob.glob(f"{CSV_DIR}/*.csv")
                         if "user-99" not in filename])
     
     for filename in filenames:
@@ -341,7 +339,7 @@ def analyze_data():
 
 def load_surveys():
     print("Loading surveys...")
-    with open("data.pickle", "rb") as fin:
+    with open(SURVEY_DIR.joinpath("survey_data.pickle"), "rb") as fin:
         data = pickle.load(fin)
     users = _load_users(data)
     tlx = _load_tlx(data)
