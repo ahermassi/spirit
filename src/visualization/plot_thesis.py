@@ -210,10 +210,10 @@ def do_errors():
 
     with figure("rms_runs", size=fig_size(0.9, 0.4)):
         molten = pd.melt(analyses,
-                         id_vars=["user","experiment", "order", "group"],
-                         value_vars=["rms", "rms_x", "rms_y"]),
-        g = sns.factorplot(x="order", y="value", hue="experiment",
-                           col="variable", data=molten, capsize=0.2)
+                         id_vars=["user", "experiment", "order", "group"],
+                         value_vars=["rms", "rms_x", "rms_y"])
+        g = sns.factorplot(x="order", y="value", col="variable",
+                           hue="experiment", data=molten, capsize=0.2)
         g.fig.axes[0].set_title("RMS Error")
         g.fig.axes[1].set_title("RMS Error in $x$")
         g.fig.axes[2].set_title("RMS Error in $y$")
