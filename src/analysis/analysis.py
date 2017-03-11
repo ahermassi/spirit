@@ -340,7 +340,7 @@ def analyze_data():
 
 def load_surveys():
     print("Loading surveys...")
-    with open(SURVEY_DIR.joinpath("survey_data.pickle"), "rb") as fin:
+    with open(SURVEY_DIR.joinpath("survey_data.pkl"), "rb") as fin:
         data = pickle.load(fin)
     users = _load_users(data)
     tlx = _load_tlx(data)

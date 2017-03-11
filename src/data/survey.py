@@ -16,7 +16,7 @@ class MyApp(App):
     def main(self):
         self.users = []
         self.save_location = (Path(__file__).parent
-                              .joinpath("../../data/raw/survey_data.pickle"))
+                              .joinpath("../../data/raw/survey_data.pkl"))
 
         container = gui.Widget(width=500, margin="0px auto")
 
