@@ -17,6 +17,6 @@ nvidia-docker run -it \
     --device /dev/snd \
     --device /dev/input \
     --privileged \
-    spirit_dev:v2
+    spirit_dev
 
 xhost -local:root
