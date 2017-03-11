@@ -17,8 +17,8 @@ TOPICS_SUMMARIZED = [
 COLUMN_NAMES = ["arrived", "angle", "gx", "gy",
                 "qa", "qb", "qc", "qd", "x", "y", "z"]
 
-BAG_DIR = "bagfiles"
-CSV_DIR = "csv"
+BAG_DIR = "data/raw"
+CSV_DIR = "data/interim"
 
 
 if not os.path.exists(CSV_DIR):
