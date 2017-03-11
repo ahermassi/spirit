@@ -3,7 +3,6 @@ from pathlib import Path
 import sys
 
 import matplotlib as mpl
-mpl.use("pgf")
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -39,6 +38,7 @@ def latexify():
     }
 
     mpl.rcParams.update(params)
+    plt.switch_backend("pgf")
 
 
 def fig_size(fig_width_tw=None, fig_ratio=None, fig_height=None, n_columns=1,
