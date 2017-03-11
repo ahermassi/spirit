@@ -5,9 +5,9 @@ xhost +local:root > /dev/null
 
 nvidia-docker run -it \
     -v ${PWD}/src/ros/spirit:/root/catkin_ws/src/spirit/ \
-    -v ${PWD}/src/data:/root/catkin_ws/src/spirit/analysis/scripts \
-    -v ${PWD}/notebooks:/root/catkin_ws/src/spirit/analysis/notebooks \
-    -v ${PWD}/data:/root/catkin_ws/src/spirit/analysis/data \
+    -v ${PWD}/src/data:/root/analysis/scripts \
+    -v ${PWD}/notebooks:/root/analysis/notebooks \
+    -v ${PWD}/data:/root/analysis/data \
     -v ${HOME}/.vimrc:/root/.vimrc \
     -v ${HOME}/.vim:/root/.vim \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
