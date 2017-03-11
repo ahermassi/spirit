@@ -1,0 +1,132 @@
+% (C) 2016 Jean Nassar. Some Rights Reserved
+% Except where otherwise noted, this work is licensed under the Creative Commons Attribution-ShareAlike License, version 4
+\ProvidesPackage{masastyle}
+
+\newcommand\mytitle{A UAV Teleoperation System Using Subimposed Past Image Records}
+\newcommand\mytitlejp{過去画像を用いた飛行ロボットの遠隔操作手法}
+
+\renewcommand{\chaptername}{Section}
+
+\chapterstyle{hangnum}
+\pagestyle{ruled}
+\makeoddfoot{plain}{}{}{\thepage}
+\makeevenfoot{plain}{\thepage}{}{}
+\nouppercaseheads
+
+\usepackage{siunitx}
+%\usepackage[colorlinks, draft=false]{hyperref}
+\usepackage[hidelinks, draft=false]{hyperref}
+\hypersetup{
+  linkcolor={red!50!black},
+  citecolor={blue!50!black},
+  urlcolor={blue!80!black},
+  pdftitle={\mytitle},
+  pdfsubject={Robotics Interfaces},
+  pdfauthor={Jean Nassar},
+  pdfkeywords={SPIR, SPIRIT, ergonomics, interfaces, robotics, teleoperation, augmented reality, virtual reality}
+}
+
+\usepackage{mathtools}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{img/}}
+\usepackage{pgf}
+\usepackage{ifdraft}
+\usepackage{topcapt,booktabs,multirow}
+
+\usepackage[outputdir={img/}, autosize]{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    point/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+
+% \usepackage{unicode-math}
+\usepackage[no-math]{fontspec}
+\setmainfont[Ligatures=TeX, Numbers={OldStyle,Proportional}]{Linux Libertine O}
+% \setmathfont(Digits,Greek,Latin)[Numbers=OldStyle]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Numbers={OldStyle,Proportional}]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Code}
+\usepackage[italic, noparenthesis]{mathastext}
+
+
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeSlant=0.1]{IPAMincho}
+\setCJKsansfont{IPAGothic}
+
+\usepackage{dcolumn}  % for apsrtable outputs
+\usepackage{xunicode}  % extra support for unicode
+\usepackage{xltxtra}  % implements some odds-and-ends features
+\usepackage{verbatim}  % for multiple-line comments
+
+\usepackage[acronym, symbols, toc]{glossaries}
+% \newglossary[nlg]{notation}{not}{ntn}{Notation}
+% \newglossary[slg]{symbols}{sym}{sbl}{Symbols}
+\setacronymstyle{long-short}
+\setglossarystyle{altlong4col}
+
+\usepackage{setspace}
+\usepackage{relsize}
+\newcommand\cpp{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
+
+\usepackage{xparse}
+
+\newcommand{\sym}[1]{\glssymbol{sym:#1}}
+
+\DeclareDocumentCommand{\newsymbol}{m m m m} {
+  \newglossaryentry{sym:#1} {
+    type=symbols,
+    name={#3},
+    description={#4},
+    symbol={\ensuremath{#2}}
+  }
+}
+
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{
+    name={\glslink{#3}{#4}},
+    text={#5},
+    description={#6},
+    nonumberlist,
+    #1
+  }
+  \newacronym[description=\glslink{gls-#3}{#5},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+\makeglossaries
+\input{glossary}
+
+\usepackage{lipsum}
+\newbox\one
+\newbox\two
+\long\def\loremlines#1{%
+  \setbox\one=\vbox {\lipsum}
+  \setbox\two=\vsplit\one to #1\baselineskip
+\unvbox\two}
+
+\usepackage[backend=biber, natbib=true, giveninits=true, sorting=none, urldate=edtf, date=edtf, seconds=true]{biblatex}
+\addbibresource{mshtsy_thesis.bib}
+% \usepackage[en-CA]{datetime2}
+
+% \DTMnewdatestyle{stddate}{%
+  % \renewcommand*{\DTMdisplaydate}[4]{##3 \DTMenglishmonthname{##2} ##1}%
+  % \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}%
+% }
+% \DTMsetdatestyle{stddate}
