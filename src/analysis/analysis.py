@@ -445,7 +445,7 @@ def best(sample1, sample2, σ_range, exponential_m, n_iter=2000, n_jobs=2):
     return BestResult(trace, model)
 
 
-def summarize(best_result, kde=True, plot=True):
+def summarize(best_result, kde=True, plot=True, column=None):
     trace, model = best_result
     if plot:
         ax = pm.plot_posterior(trace[100:],
@@ -470,6 +470,12 @@ def summarize(best_result, kde=True, plot=True):
                varnames=["difference of means", "difference of stds",
                          "effect size"])
 
+    if column is not None:
+        pm.summary(trace[1000:],
+                   varnames=["difference of means", "difference of stds",
+                             "effect size"],
+                   to_file=BEST_DIR.joinpath(f"best_{column}.txt"))
+
 
 def analyze_differences(df, columns, params, n_iter=2000, n_jobs=2,
                         show_summaries=True, plot=False, save=True):
@@ -482,7 +488,7 @@ def analyze_differences(df, columns, params, n_iter=2000, n_jobs=2,
                            n_iter=n_iter, n_jobs=n_jobs)
         traces[column] = best_result
         if show_summaries:
-            summarize(best_result, plot=plot)
+            summarize(best_result, plot=plot, column=column)
         if save:
             with open(BEST_DIR.joinpath(f"best_{column}.pkl"), "wb") as fout:
                 pickle.dump(best_result, fout)
