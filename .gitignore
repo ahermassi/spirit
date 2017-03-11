@@ -148,3 +148,9 @@ qtcreator-*
 # Catkin custom files
 CATKIN_IGNORE
 spirit/config/.launch_params.yaml
+
+# Bag files
+*.bigbag
+
+# CSV files - can regenerate.
+csv/
