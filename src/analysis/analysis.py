@@ -200,7 +200,7 @@ def plot_targets(p_init=Coords(0, 0), p_final=Coords(0, 0),
 
 
 def distance(df, target):
-        return np.sqrt((df.xn - target.x)**2 + (df.yn - target.y)**2)
+    return np.sqrt((df.xn - target.x)**2 + (df.yn - target.y)**2)
 
 
 def usable_filenames():
