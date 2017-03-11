@@ -28,7 +28,7 @@ plt.rcParams["axes.prop_cycle"] = colorblind_cyclers[cmap_main]
 
 
 def do_drone_dos():
-    with figure("ardrone_dos", figsize=fig_size(0.45)):
+    with figure("ardrone_dos", size=fig_size(0.45)):
         distances = np.array([0, 2, 8, 18, 23, 29, 34, 40,
                               45, 51, 56, 62, 67, 72, 78, 80])
         powers = np.array([90, 90, 86, 60, 50, 62, 35, 26,
@@ -52,7 +52,7 @@ def do_drone_dos():
 
 
 def do_paths():
-    with figure("paths_overview", figsize=fig_size(0.75, 0.8)):
+    with figure("paths_overview", size=fig_size(0.75, 0.8)):
         ax1 = plt.subplot("121")
         plot_overview(results, ExperimentType.Onboard, color="C0", size_point=2,
                       drone_width=0.5)
@@ -61,7 +61,7 @@ def do_paths():
                       ylabel="", drone_width=0.5)
         plt.setp(ax2.get_yticklabels(), visible=False)
 
-    with figure("paths_detailed", figsize=fig_size(0.75, 0.7)):
+    with figure("paths_detailed", size=fig_size(0.75, 0.7)):
         ax1 = plt.subplot("121")
         plot_detailed(results, ExperimentType.Onboard, color="C0",
                       size_point=2, crosshair=True, drone_width=0.5)
@@ -74,24 +74,24 @@ def do_paths():
 
 
 def do_distributions():
-    with figure("distribution_onboard", figsize=fig_size(0.44, 1)):
+    with figure("distribution_onboard", size=fig_size(0.44, 1)):
         plot_distribution(results, ExperimentType.Onboard, color="C0",
                           crosshair=True, drone_width=0.5)
 
-    with figure("distribution_spirit", figsize=fig_size(0.44, 1)):
+    with figure("distribution_spirit", size=fig_size(0.44, 1)):
         plot_distribution(results, ExperimentType.Spirit, color="C1",
                           crosshair=True, drone_width=0.5)
 
 
 def do_durations():
-    with figure("duration", figsize=fig_size(0.44, 1)):
+    with figure("duration", size=fig_size(0.44, 1)):
         sns.factorplot(x="experiment", y="duration", data=analyses, kind="box")
         sns.swarmplot(x="experiment", y="duration", split=True, data=analyses,
                       palette=cmap_complement)
         plt.ylim(0, plt.ylim()[1])
         plt.ylabel("duration (s)")
 
-    with figure("duration_runs", figsize=fig_size(0.44, 1)):
+    with figure("duration_runs", size=fig_size(0.44, 1)):
         sns.factorplot(x="order", y="duration", hue="experiment", data=analyses,
                        capsize=0.2)
         plt.ylim(0, plt.ylim()[1])
@@ -100,7 +100,7 @@ def do_durations():
 
 
 def do_movement():
-    with figure("movement", figsize=fig_size(0.9, 0.4)):
+    with figure("movement", size=fig_size(0.9, 0.4)):
         molten = pd.melt(analyses,
                          id_vars=["user", "experiment", "order", "group"],
                          value_vars=["path_length", "move_x", "move_y"])
@@ -143,7 +143,7 @@ def do_movement():
         plt.ylabel("distance (m)")
         plt.title("Movement backwards")
 
-    with figure("movement_runs", figsize=fig_size(0.9, 0.4)):
+    with figure("movement_runs", size=fig_size(0.9, 0.4)):
         molten = pd.melt(analyses,
                          id_vars=["user", "experiment", "order", "group"],
                          value_vars=["path_length", "move_x", "move_y"])
@@ -190,7 +190,7 @@ def do_movement():
 
 
 def do_errors():
-    with figure("rms", figsize=fig_size(0.9, 0.4)):
+    with figure("rms", size=fig_size(0.9, 0.4)):
         molten = pd.melt(analyses,
                          id_vars=["user", "experiment", "order", "group"],
                          value_vars=["rms", "rms_x", "rms_y"])
@@ -201,7 +201,7 @@ def do_errors():
         g.fig.axes[2].set_title("RMS Error in $y$")
         g.fig.axes[0].set_ylabel("error (m)")
 
-    with figure("rms_runs", figsize=fig_size(0.9, 0.4)):
+    with figure("rms_runs", size=fig_size(0.9, 0.4)):
         molten = pd.melt(analyses,
                          id_vars=["user","experiment", "order", "group"],
                          value_vars=["rms", "rms_x", "rms_y"]),
@@ -215,7 +215,7 @@ def do_errors():
         g.fig.axes[1].set_xlabel("run")
         g.fig.axes[2].set_xlabel("run")
 
-    with figure("distance", figsize=fig_size(0.9, 0.4)):
+    with figure("distance", size=fig_size(0.9, 0.4)):
         molten = pd.melt(analyses,
                          id_vars=["user", "experiment", "order", "group"],
                          value_vars=[r"dist_err", r"x_err", r"y_err"])
@@ -231,14 +231,14 @@ def do_errors():
 
 
 def do_surveys():
-    with figure("tlx_results", figsize=fig_size(0.44, 1)):
+    with figure("tlx_results", size=fig_size(0.44, 1)):
         sns.factorplot(x="experiment", y="tlx", data=tlx, kind="box")
         sns.swarmplot(x="experiment", y=r"tlx",
                       data=tlx, palette=cmap_complement, split=True)
         plt.ylim(0, plt.ylim()[1])
         plt.ylabel("NASA-TLX weighted score")
 
-    with figure("tlx_components", figsize=fig_size(0.44, 1)):
+    with figure("tlx_components", size=fig_size(0.44, 1)):
         components = ["mental", "physical", "temporal", "performance",
                       "effort", "frustration"]
         molten = pd.melt(tlx, id_vars=["user", "experiment", "order"],
@@ -253,14 +253,14 @@ def do_surveys():
         plt.xlabel("NASA-TLX component")
         plt.ylabel("score")
 
-    with figure("survey_results", fig_size(0.44, 1)):
+    with figure("survey_results", size=fig_size(0.44, 1)):
         sns.factorplot(x="experiment", y="total", data=surveys, kind="box")
         sns.swarmplot(x="experiment", y=r"total", data=surveys,
                       palette=cmap_complement, split=True)
         plt.ylim(0, plt.ylim()[1])
         plt.ylabel("survey score")
 
-    with figure("survey_components", figsize=fig_size(0.9, 0.5)):
+    with figure("survey_components", size=fig_size(0.9, 0.5)):
         molten = pd.melt(surveys, id_vars=["user", "experiment", "order"],
                          value_vars=[r"orientation_understanding",
                                      r"orientation_control",
