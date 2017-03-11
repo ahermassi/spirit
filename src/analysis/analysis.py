@@ -54,7 +54,7 @@ def plot_overview(df, experiment_type, color="C0", title=None, target=TARGET,
     for run in set(df_ex.total_ordering):
         df_run = df_ex[df_ex.total_ordering == run]
         plt.plot(df_run.xn, df_run.yn, alpha=alpha_path, color=color,
-                 zorder=zorder_path)
+                 zorder=zorder_path, lw=width_path)
     plt.scatter(df_arr.xn, df_arr.yn, alpha=alpha_point, color=color,
                 zorder=zorder_point, s=size_point)
     plot_targets(show_start=True, show_final=False, target_coords=[target],
@@ -70,11 +70,11 @@ def plot_by_distance(df, experiment_type, cmap="C0", target=TARGET,
                      xlabel="$x$ (m)", ylabel="$y$ (m)"):
     df_ex = df[df.experiment_type == experiment_type]
     df_arr = df_ex[df_ex.arrived == 1]
-    plt.scatter(df_arr.xn, df_arr.yn,
+    plt.scatter(df_arr.xn, df_arr.yn, alpha=alpha_point, zorder=zorder_point,
                 c=df_arr.distance, cmap=cmap)
     plt.colorbar(label="distance (m)")
     plt.clim(df[df.arrived==1].distance.min(), df[df.arrived==1].distance.max())
-    plot_targets(show_start=False, show_final=False, target_coords=[TARGET],
+    plot_targets(show_start=False, show_final=False, target_coords=[target],
                  crosshair=crosshair)
     plt.axis("equal")
     plt.xlabel(xlabel)
@@ -91,9 +91,10 @@ def plot_detailed(df, experiment_type, color="C0", title=None, target=TARGET,
     for order in np.arange(1, df.order.max()+1):
         df_run = df_arr[df_arr.order==order]
         plt.scatter(df_run.xn, df_run.yn,
-                    label=f"Run {order}", s=size_point,
-                    color=change_color(color, value=-50+25*(order-1)))
-    plot_targets(show_start=False, show_final=False, target_coords=[TARGET],
+                    label=f"Run {order}", s=size_point, alpha=alpha_point,
+                    color=change_color(color, value=-50+25*(order-1)),
+                    zorder=zorder_point)
+    plot_targets(show_start=False, show_final=False, target_coords=[target],
                  crosshair=crosshair, drone_width=drone_width)
     plt.title(title)
     plt.axis("equal")
