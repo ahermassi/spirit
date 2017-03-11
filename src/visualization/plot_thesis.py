@@ -1,3 +1,6 @@
+from functools import partial
+from pathlib import Path
+
 from .latexify import latexify, figure, fig_size
 import matplotlib.pyplot as plt
 import numpy as np
@@ -25,6 +28,10 @@ cmap_main, cmap_complement = colorblind_cmaps
 colorblind_cyclers = {cmap: plt.cycler("color", plt.cm.get_cmap(cmap).colors)
                       for cmap in colorblind_cmaps}
 plt.rcParams["axes.prop_cycle"] = colorblind_cyclers[cmap_main]
+
+
+FIGURE_DIR = Path(__file__).parent.joinpath("../../reports/thesis/img/plots")
+figure = partial(figure, folder=FIGURE_DIR, exts=["pdf", "pgf"])
 
 
 def do_drone_dos():

@@ -96,7 +96,7 @@ def fig_size(fig_width_tw=None, fig_ratio=None, fig_height=None, n_columns=1,
     return fig_width, fig_height
 
 
-def save_fig(filename, folder="img", from_context=False, exts=("pgf", "pdf")):
+def save_fig(filename, folder, exts, from_context=False):
     if not from_context:
         print(f"Saving {filename}...  ")
     plt.tight_layout(0)
@@ -107,13 +107,12 @@ def save_fig(filename, folder="img", from_context=False, exts=("pgf", "pdf")):
 
 
 @contextmanager
-def figure(filename, folder="../img/plots", size=fig_size(),
-           exts=("pgf", "pdf")):
+def figure(filename, folder="img", exts=["png"], size=fig_size()):
     print(f"{filename}:")
     print("  Plotting...")
     yield
     plt.gcf().set_size_inches(*size)
-    save_fig(filename, folder=folder, from_context=True, exts=exts)
+    save_fig(filename, folder=folder, exts=exts, from_context=True)
     plt.close()
 
 
@@ -122,7 +121,7 @@ if __name__ == "__main__":
     x = np.linspace(-np.pi, np.pi)
     y = np.sin(x)
     y2 = np.cos(x)
-    with figure("latexify"):
+    with figure("latexify", folder="img", exts=["pgf", "pdf"]):
         plt.plot(x, y, label=r"$\sin(\theta)$")
         plt.plot(x, y2, label=r'$\cos(\theta)$')
         plt.legend()
