@@ -48,8 +48,6 @@ qtconsole==4.2.1
 recommonmark==0.4.0
 remi==0.1
 requests==2.13.0
-rosbag-pandas==0.5.0.0
-rospkg==1.0.41
 scikit-learn==0.18.1
 scipy==0.18.1
 seaborn==0.7.1

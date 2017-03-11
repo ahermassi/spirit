@@ -46,8 +46,12 @@ ENV PATH /usr/local/nvidia/bin:${PATH}
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
 WORKDIR /root/catkin_ws/src/spirit
-RUN apt-get install -y firefox ros-kinetic-rqt-graph
-RUN /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh; mkvirtualenv spirit; pip install bokeh catkin_pkg defusedxml jupyter lxml numpy matplotlib pandas pygame pyyaml rosbag_pandas roshelper rospkg scipy seaborn tqdm"
+RUN apt-get install -y firefox
+RUN apt-get install -y ros-kinetic-rqt-graph
+
+COPY requirements_docker.txt /root/catkin_ws/src/spirit/requirements.txt
+RUN /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh; mkvirtualenv spirit; pip install -r requirements.txt"
+
 RUN mkdir /root/.ros/camera_info
 RUN cp config/ardrone_front.yaml /root/.ros/camera_info
 RUN cp config/ardrone_bottom.yaml /root/.ros/camera_info
