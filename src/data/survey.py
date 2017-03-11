@@ -6,8 +6,7 @@ from random import choice, shuffle
 
 from remi import gui, start, App
 
-from survey_utils import (ExperimentType, User, Experiment, TlxComponent, Tlx,
-                          Question, Survey)
+from .survey_utils import ExperimentType, User, Experiment, Tlx, Survey
 
 
 class MyApp(App):

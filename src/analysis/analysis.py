@@ -1,4 +1,3 @@
-from latexify import latexify, fig_size, savefig
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -178,8 +177,10 @@ def plot_targets(p_init=Coords(0, 0), p_final=Coords(0, 0),
                         zorder=zorder, lw=0.5)
         if drone_width is not None:
             ax.add_patch(mpl.patches.Rectangle(
-                (coord.x * (-1 if invert_x else 1) - target_size.x / 2 - drone_width / 2,
-                 coord.y * (-1 if invert_y else 1) - target_size.y / 2 - drone_width / 2),
+                (coord.x * (-1 if invert_x else 1)
+                    - target_size.x / 2 - drone_width / 2,
+                 coord.y * (-1 if invert_y else 1)
+                    - target_size.y / 2 - drone_width / 2),
                 target_size.x + drone_width,
                 target_size.y + drone_width,
                 fill=False, lw=0.5, linestyle="dotted",
@@ -372,7 +373,8 @@ def _load_tlx(data):
             tlx_data.append(d)
     tlx = pd.DataFrame(tlx_data)
     tlx["group"] = tlx.user % 2
-    tlx["tlx"] = tlx.mental + tlx.physical + tlx.temporal + tlx.performance + tlx.effort + tlx.frustration
+    tlx["tlx"] = (tlx.mental + tlx.physical + tlx.temporal
+                  + tlx.performance + tlx.effort + tlx.frustration)
     tlx["order"] = [1, 2]*(len(tlx)//2)
     tlx["experiment_int"] = [e.value for e in tlx.experiment_type]
     tlx["experiment"] = [e.name for e in tlx.experiment_type]
@@ -386,7 +388,8 @@ def _load_surveys(data, tlx):
     for user in data:
         for experiment in user.experiments:
             d = {"user": user.id_, "experiment_type": experiment.type_}
-            d.update({i.code:i.score for i in experiment.survey.questions.values()})
+            d.update({i.code:i.score
+                      for i in experiment.survey.questions.values()})
             survey_data.append(d)
 
     surveys = pd.DataFrame(survey_data)
@@ -394,7 +397,12 @@ def _load_surveys(data, tlx):
     surveys["order"] = [1, 2]*(len(surveys)//2)
     surveys["experiment"] = [e.name for e in surveys.experiment_type]
     surveys["experiment_int"] = [e.value for e in surveys.experiment_type]
-    surveys["total"] = surveys.orientation_understanding + surveys.orientation_control + surveys.position_understanding + surveys.position_control + surveys.spacial_understanding + surveys.spacial_control
+    surveys["total"] = (surveys.orientation_understanding
+                        + surveys.orientation_control
+                        + surveys.position_understanding
+                        + surveys.position_control
+                        + surveys.spacial_understanding
+                        + surveys.spacial_control)
     surveys.experiment.replace("Spirit", "SPIRIT", inplace=True)
     return surveys
 

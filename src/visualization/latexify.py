@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 
 import matplotlib as mpl
-mpl.use('pgf')
+mpl.use("pgf")
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -96,7 +96,7 @@ def fig_size(fig_width_tw=None, fig_ratio=None, fig_height=None, n_columns=1,
     return fig_width, fig_height
 
 
-def savefig(filename, folder="../img", from_context=False, exts=("pgf", "pdf")):
+def savefig(filename, folder="img", from_context=False, exts=("pgf", "pdf")):
     if not from_context:
         print(f"Saving {filename}...  ")
     plt.tight_layout(0)

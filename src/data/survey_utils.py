@@ -1,14 +1,6 @@
 from enum import Enum
 
 
-TLX_COMPONENTS = [
-    "mental",
-    "physical",
-    "temporal",
-    "performance",
-    "effort",
-    "frustration",
-]
 ExperimentType = Enum("ExperimentType", "Onboard Spirit Combined")
 
 
@@ -19,6 +11,7 @@ class User(object):
         self.id_ = User.count
         self.name = name
         self.age = age
+        self.gender = gender
         self.teleop = teleop
         self.flying = flying
         User.count += 1
@@ -90,12 +83,18 @@ class Question(object):
 
 class Survey(object):
     _questions = {
-        "position_understanding": "Your understanding of the position of the drone",
-        "orientation_understanding": "Your understanding of the orientation of the drone",
-        "spacial_understanding": "Your understanding of the spacial relationship between the drone and the target",
-        "position_control": "Your control of the position of the drone",
-        "orientation_control": "Your control of the orientation of the drone",
-        "spacial_control": "Your ability to stay above the target",
+        "position_understanding":
+            "Your understanding of the position of the drone",
+        "orientation_understanding":
+            "Your understanding of the orientation of the drone",
+        "spacial_understanding":
+            "Your understanding of the spacial relationship between the drone and the target",
+        "position_control":
+            "Your control of the position of the drone",
+        "orientation_control":
+            "Your control of the orientation of the drone",
+        "spacial_control":
+            "Your ability to stay above the target",
     }
 
     def __init__(self):

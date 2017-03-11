@@ -1,12 +1,11 @@
-from latexify import latexify, figure, fig_size, savefig
-import matplotlib as mpl
+from .latexify import latexify, figure, fig_size
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pymc3 as pm
 import seaborn.apionly as sns
 
-from analysis import (
+from ..analysis.analysis import (
     analyze_data,
     analyze_differences,
     load_best_result,
@@ -26,7 +25,6 @@ cmap_main, cmap_complement = colorblind_cmaps
 colorblind_cyclers = {cmap: plt.cycler("color", plt.cm.get_cmap(cmap).colors)
                       for cmap in colorblind_cmaps}
 plt.rcParams["axes.prop_cycle"] = colorblind_cyclers[cmap_main]
-
 
 
 def do_drone_dos():
@@ -257,7 +255,8 @@ def do_surveys():
 
     with figure("survey_results", fig_size(0.44, 1)):
         sns.factorplot(x="experiment", y="total", data=surveys, kind="box")
-        sns.swarmplot(x="experiment", y=r"total", data=surveys, palette=cmap_complement, split=True)
+        sns.swarmplot(x="experiment", y=r"total", data=surveys,
+                      palette=cmap_complement, split=True)
         plt.ylim(0, plt.ylim()[1])
         plt.ylabel("survey score")
 
@@ -315,19 +314,19 @@ def do_differences(recalculate=False):
 
 
 if __name__ == "__main__":
-    # latexify()
+    latexify()
 
-    # do_drone_dos()
+    do_drone_dos()
 
-    # results, analyses = analyze_data()
-    # do_paths()
-    # do_distributions()
-    # do_durations()
-    # do_movement()
-    # do_errors()
+    results, analyses = analyze_data()
+    do_paths()
+    do_distributions()
+    do_durations()
+    do_movement()
+    do_errors()
 
-    # users, tlx, surveys = load_surveys()
-    # do_surveys()
+    users, tlx, surveys = load_surveys()
+    do_surveys()
 
     # WARNING: Takes a long time with recalculate.
-    # do_differences()
+    do_differences()
