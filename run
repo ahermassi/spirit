@@ -4,10 +4,10 @@ set -e
 xhost +local:root > /dev/null
 
 nvidia-docker run -it \
-    -v ${HOME}/documents/spirit/spirit/src/ros/spirit:/root/catkin_ws/src/spirit/ \
-    -v ${HOME}/documents/spirit/spirit/src/data:/root/catkin_ws/src/spirit/analysis \
-    -v ${HOME}/documents/spirit/spirit/notebooks:/root/catkin_ws/src/spirit/analysis/notebooks \
-    -v ${HOME}/documents/spirit/spirit/data:/root/catkin_ws/src/spirit/analysis/data \
+    -v ${PWD}/src/ros/spirit:/root/catkin_ws/src/spirit/ \
+    -v ${PWD}/src/data:/root/catkin_ws/src/spirit/analysis \
+    -v ${PWD}/notebooks:/root/catkin_ws/src/spirit/analysis/notebooks \
+    -v ${PWD}/data:/root/catkin_ws/src/spirit/analysis/data \
     -v ${HOME}/.vimrc:/root/.vimrc \
     -v ${HOME}/.vim:/root/.vim \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
