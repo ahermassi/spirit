@@ -251,8 +251,7 @@ def do_surveys():
         molten = pd.melt(tlx, id_vars=["user", "experiment", "order"],
                          value_vars=components,
                          var_name="component", value_name="score")
-        g = sns.barplot(x=r"component", y="score", hue="experiment",
-                        data=molten)
+        sns.barplot(x=r"component", y="score", hue="experiment", data=molten)
 
         plt.gca().set_xticklabels(
                 ["MD", "PD", "TD", "P", "E", "F"])
