@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from itertools import combinations
+from pathlib import Path
 import pickle
 from random import choice, shuffle
 
@@ -15,7 +16,8 @@ class MyApp(App):
 
     def main(self):
         self.users = []
-        self.save_location = "data.pickle"
+        self.save_location = (Path(__file__).parent
+                              .joinpath("../../data/raw/survey_data.pickle"))
 
         container = gui.Widget(width=500, margin="0px auto")
 
@@ -328,7 +330,7 @@ class MyApp(App):
         self._get_new_save_location(save_as=True)
 
     def cbk_select_pickle(self, widget):
-        file_selector = gui.FileSelectionDialog("File Selection Dialog", "Select data pickle.", False, ".")
+        file_selector = gui.FileSelectionDialog("File Selection Dialog", "Select data pickle.", False, "../../data/raw")
         file_selector.set_on_confirm_value_listener(self.cbk_load)
         file_selector.show(self)
 
