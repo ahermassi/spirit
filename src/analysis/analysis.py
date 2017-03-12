@@ -474,7 +474,12 @@ def summarize(best_result, kde=True, plot=True, column=None):
         pm.summary(trace[1000:],
                    varnames=["difference of means", "difference of stds",
                              "effect size"],
-                   to_file=BEST_DIR.joinpath(f"best_{column}.txt"))
+                   to_file=BEST_DIR.joinpath(f"best_{column}_pretty.txt"))
+        df = pm.df_summary(trace[1000:],
+                           varnames=["difference of means",
+                                     "difference of stds", "effect size"])
+        with open(BEST_DIR.joinpath(f"best_{column}_df.txt"), "w") as fout:
+            fout.write(str(df))
 
 
 def analyze_differences(df, columns, params, n_iter=2000, n_jobs=2,

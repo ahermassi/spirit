@@ -9,6 +9,7 @@ import pymc3 as pm
 import seaborn.apionly as sns
 
 from ..analysis.analysis import (
+    BEST_DIR,
     analyze_data,
     analyze_differences,
     load_best_result,
@@ -291,6 +292,28 @@ def do_surveys():
         plt.title("Survey results")
 
 
+def _do_differences(df, trace_cols, trace_coeffs, recalculate=False):
+    if recalculate:
+        traces = analyze_differences(df, trace_cols, trace_coeffs)
+    else:
+        traces = {col: load_best_result(col) for col in trace_cols}
+    for col, best_result in traces.items():
+        trace = best_result.trace
+        with figure(f"mean_std_{col}"):
+            ax = pm.plot_posterior(trace[100:],
+                                   varnames=[r"group1_mean", r"group2_mean",
+                                             r"group1_std", r"group2_std"],
+                                   kde_plot=True, color="C0")
+            for a in (1, 3):
+                ax[a].lines[0].set_color("C1")
+
+        with figure(f"difference_{col}"):
+            # noinspection PyTypeChecker
+            pm.plot_posterior(trace[1000:],
+                              varnames=["difference of means", "effect size"],
+                              ref_val=0, kde_plot=True, color="C2")
+
+
 def do_differences_analyses(recalculate=False):
     trace_cols = ["duration", "dist_err", "x_err", "y_err", "rms_x", "rms_y",
                   "path_length", "move_l", "move_r", "move_x", "move_b",
@@ -299,78 +322,24 @@ def do_differences_analyses(recalculate=False):
                     + [[(0, 10), 10], [(0, 5), 3], [(0, 5), 3], [(0, 10), 6],
                        [(0, 5), 1.5], [(0, 5), 7], [(0, 10), 9]])
 
-    if recalculate:
-        traces = analyze_differences(analyses, trace_cols, trace_coeffs)
-    else:
-        traces = {col: load_best_result(col) for col in trace_cols}
-    for col, best_result in traces.items():
-        trace = best_result.trace
-        with figure(f"mean_std_{col}"):
-            ax = pm.plot_posterior(trace[100:],
-                                   varnames=[r"group1_mean", r"group2_mean",
-                                             r"group1_std", r"group2_std"],
-                                   kde_plot=True, color="C0")
-            for a in (1, 3):
-                ax[a].lines[0].set_color("C1")
-
-        with figure(f"difference_{col}"):
-            # noinspection PyTypeChecker
-            pm.plot_posterior(trace[1000:],
-                              varnames=["difference of means", "effect size"],
-                              ref_val=0, kde_plot=True, color="C2")
+    _do_differences(analyses, trace_cols, trace_coeffs, recalculate)
 
 
 def do_differences_surveys(recalculate=False):
     trace_cols = ["orientation_understanding", "orientation_control",
                   "position_understanding", "position_control",
                   "spacial_understanding", "spacial_control", "total"]
-    trace_coeffs = [[(0, 7), 2]]*6 + [[(7, 42), 10]]
+    trace_coeffs = [[(0, 7), 2]]*6 + [[(0, 42), 10]]
 
-    if recalculate:
-        traces = analyze_differences(surveys, trace_cols, trace_coeffs)
-    else:
-        traces = {col: load_best_result(col) for col in trace_cols}
-    for col, best_result in traces.items():
-        trace = best_result.trace
-        with figure(f"mean_std_{col}"):
-            ax = pm.plot_posterior(trace[100:],
-                                   varnames=[r"group1_mean", r"group2_mean",
-                                             r"group1_std", r"group2_std"],
-                                   kde_plot=True, color="C0")
-            for a in (1, 3):
-                ax[a].lines[0].set_color("C1")
-
-        with figure(f"difference_{col}"):
-            # noinspection PyTypeChecker
-            pm.plot_posterior(trace[1000:],
-                              varnames=["difference of means", "effect size"],
-                              ref_val=0, kde_plot=True, color="C2")
+    _do_differences(surveys, trace_cols, trace_coeffs, recalculate)
 
 
 def do_differences_tlx(recalculate=False):
     trace_cols = ["mental", "physical", "temporal", "performance",
                   "effort", "frustration", "tlx"]
-    trace_coeffs = [[(0, 45), 20]]*6 + [[(50, 250), 100]]
+    trace_coeffs = [[(0, 45), 20]]*6 + [[(0, 250), 100]]
 
-    if recalculate:
-        traces = analyze_differences(tlx, trace_cols, trace_coeffs)
-    else:
-        traces = {col: load_best_result(col) for col in trace_cols}
-    for col, best_result in traces.items():
-        trace = best_result.trace
-        with figure(f"mean_std_{col}"):
-            ax = pm.plot_posterior(trace[100:],
-                                   varnames=[r"group1_mean", r"group2_mean",
-                                             r"group1_std", r"group2_std"],
-                                   kde_plot=True, color="C0")
-            for a in (1, 3):
-                ax[a].lines[0].set_color("C1")
-
-        with figure(f"difference_{col}"):
-            # noinspection PyTypeChecker
-            pm.plot_posterior(trace[1000:],
-                              varnames=["difference of means", "effect size"],
-                              ref_val=0, kde_plot=True, color="C2")
+    _do_differences(tlx, trace_cols, trace_coeffs, recalculate)
 
 
 if __name__ == "__main__":
@@ -389,6 +358,6 @@ if __name__ == "__main__":
     do_surveys()
 
     # # WARNING: Takes a long time with recalculate.
-    # do_differences_analyses()
-    # do_differences_surveys()
-    # do_differences_tlx()
+    # do_differences_analyses(recalculate=True)
+    # do_differences_surveys(recalculate=True)
+    # do_differences_tlx(recalculate=True)
