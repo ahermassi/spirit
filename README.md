@@ -72,13 +72,13 @@ If permission errors occur on files created inside the docker container (such as
 ## Components
 This repository contains the four main components of the project, each with its own readme.
 
-The Jupyter notebooks in the [notebooks](notebooks) directory are primarily for exploration, and are only included here for completeness.
+The Jupyter notebooks in the [`notebooks`](notebooks) directory are primarily for exploration, and are only included here for completeness.
 They do not get updated, and may lag behind the latest changes in structure or details.
 
 ### SPIRIT
 [[README]](references/readme_spirit.md)
 The crux of the project.
-It lives in the [src/ros/spriit](src/ros/spirit) directory, and contains the entire ROS portion. 
+It lives in the [`src/ros/spririt`](src/ros/spirit) directory, and contains the entire ROS portion. 
 
 In order to run it, follow the [checklist](references/readme_spirit.md#checklist) in the SPIRIT readme.
 Note that this does not attempt to gather any data, but instead enables the user to interface with the motion capture system and fly the drone.
