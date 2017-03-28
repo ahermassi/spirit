@@ -9,7 +9,8 @@ This repository contains the four main components of the project, each with its 
 
 ### SPIRIT
 [[README]](references/readme_spirit.md)
-Some written things.
+The crux of the project.
+
 
 ### Data collection 
 [[README]](references/readme_data.md)
@@ -31,8 +32,7 @@ It also helps with the reproducability of the data pipleine, and the collection 
 
 
 ## Licensing
-* The SPIRIT software is licensed under the Berkeley Software Distribution 3-Clause License, except where otherwise noted.
-* The data collection and analysis code is licensed under the MIT License.
+* The SPIRIT software, as well as the code used for data collection and analysis, are licensed under the MIT License.
 * The thesis is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
 
 Permissions beyond the scope of this license are administered by Jean Nassar. Please contact jeannassar5+licensing@gmail.com for more information.
