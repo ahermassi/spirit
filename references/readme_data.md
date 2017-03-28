@@ -30,11 +30,12 @@ It is also possible to choose a random experiment, or an experiment which allows
   * [ ] `cd` to the /root/analysis/scripts directory.
   * [ ] Run `record_bag.py` with two arguments: the experimenter ID and the experiment type. Use `./record_bag.py --help` for more details.
   * [ ] Press the OBS hotkey to start recording.
-* [ ] Return to the SPIRIT [checklist](readme_spirit.md#checklist-collect_data) and continue normally.
-* [ ] <a name="checklist-stop-collection" />When done with the run, stop the data collection:
+* [ ] <a name="checklist-stop-collection" />Return to the SPIRIT [checklist](readme_spirit.md#checklist-collect_data) and continue normally.
+* [ ] When done with the run, stop the data collection:
   * [ ] Press the OBS hotkey to stop recording.
   * [ ] Press Ctrl+C on the keyboard in the correct terminal to stop `record_bag.py`.
   * [ ] Run `bag_to_csv.py` to be able to use the data offline.
+* [ ] Stop ROS and safe the drone. [[checklist]](readme_spirit.md#safe-drone)
 * [ ] Run the surveys:
   * [ ] Run the NASA-TLX survey and follow the instructions on the screen. Press "Save" when done.
   * [ ] Run the user survey and follow the instructions on the screen. Press "Save" when done.
