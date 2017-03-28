@@ -5,12 +5,15 @@ I built a novel interface for the teleoperation of quadrotors, which allows the 
 
 ## Components
 This repository contains the four main components of the project.
-Their READMEs are linked below.
 
-### [The SPIRIT software](references/readme_spirit.md)
-### [Data collection during the experiment](references/readme_data.md)
+### SPIRIT
+[The SPIRIT software](references/readme_spirit.md) works well.
+### Data collection [[README]](references/readme_data.md)
+Some written things.
 ### [Data analysis](references/readme_analysis.md)
-### [The thesis](references/readme_thesis.md)
+Some written things.
+### Thesis
+[[README]](references/readme_thesis.md) Some written things.
 
 ## Structure
 This repository utilizes a slightly modified version of Driven Data's [data science cookiecutter template](https://drivendata.github.io/cookiecutter-data-science/).
