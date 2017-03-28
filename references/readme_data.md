@@ -24,5 +24,20 @@ By default, bagfiles and survey data are stored in [`data/raw`](../data/raw), wh
 * [ ] Move to the corresponding tab and click on the "Run experiment" button.
 For my experiment, the users with an even ID started with the onboard view, while those with an odd ID started with SPIRIT.
 It is also possible to choose a random experiment, or an experiment which allows the user to see both interfaces at the same time.
-* [ ] Now, you want to run the Docker container and connect to the drone according to the [checklist](readme_spirit.md#checklist-collect-data) in the corresponding [readme](readme_spirit.md).
-In a separate terminal, `join` the running container.
+* [ ] Now, you want to run the Docker container and connect to the drone according to the [checklist](readme_spirit.md#checklist) in the corresponding [readme](readme_spirit.md).
+* [ ] Depending on the experiment, you may need to hide one of the video windows or mute the sounds at this point.
+* [ ] In a separate terminal, `join` the running container and start collecting data:
+  * [ ] `cd` to the /root/analysis/scripts directory.
+  * [ ] Run `record_bag.py` with two arguments: the experimenter ID and the experiment type. Use `./record_bag.py --help` for more details.
+  * [ ] Press the OBS hotkey to start recording.
+* [ ] Return to the SPIRIT [checklist](readme_spirit.md#checklist-collect_data) and continue normally.
+* [ ] <a name="checklist-stop-collection" />When done with the run, stop the data collection:
+  * [ ] Press the OBS hotkey to stop recording.
+  * [ ] Press Ctrl+C on the keyboard in the correct terminal to stop `record_bag.py`.
+  * [ ] Run `bag_to_csv.py` to be able to use the data offline.
+* [ ] Safe the drone. [[checklist]](readme_spirit.md#safe-drone)
+* [ ] Run the surveys:
+  * [ ] Run the NASA-TLX survey and follow the instructions on the screen. Press "Save" when done.
+  * [ ] Run the user survey and follow the instructions on the screen. Press "Save" when done.
+  * [ ] Press "Save" to return to the home screen, and press "Save" again to store the data onto the hard drive.
+* [ ] Repeat the experiments as necessary.

@@ -73,7 +73,8 @@ In order to run the system:
   * [ ] Tap the Emergency button (default is R1). The drone lights should turn red momentarily, and the status should change to Emergency.
 * [ ] Launch the drone and fly. Tap the Takeoff button to take off, and the Land button to land. Use the Emergency button in emergencies. Tap the Arrived button to indicate that you believe that you are at the target.
 * [ ] After landing:
-  * [ ] Stop any recording of data.
+  * [ ] Stop any recording of data. [[checklist]](readme_data.md#checklist-stop-collection)
+  * [ ] <a name="safe-drone" />Press Ctrl+C on the keyboard in the correct terminal to stop ROS.
   * [ ] Retrieve the drone.
   * [ ] Disconnect and charge the battery.
 
