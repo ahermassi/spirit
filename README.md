@@ -10,6 +10,7 @@ This repository contains the four main components of the project, each with its 
 ### SPIRIT
 [[README]](references/readme_spirit.md)
 The crux of the project.
+It lives in the [ROS](src/ros) directory.
 
 
 ### Data collection 
