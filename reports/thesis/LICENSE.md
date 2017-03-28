@@ -1,6 +1,7 @@
 ## A UAV Teleoperation System Using Subimposed Past Image Records
-## 過去画像を用いた飛行ロボットの遠隔操作手法
-## Copyright © 2017 by Jean Nassar
+過去画像を用いた飛行ロボットの遠隔操作手法
+
+Copyright © 2017 by Jean Nassar
 
 # Creative Commons Attribution-ShareAlike 4.0 International License
 
