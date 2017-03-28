@@ -7,6 +7,27 @@ This implementation relies on a motion capture (mocap) setup to obtain the posit
 Changing the localization method would enable the system to be used outdoors.
 
 
+## Table of Contents
+
+* [Structure](#structure)
+* [Setup and running](#setup-and-running)
+  * [Python](#python)
+  * [Docker](#docker)
+  * [Troubleshooting](#troubleshooting)
+* [Components](#components)
+  * [SPIRIT](#spirit)
+  * [Data collection](#data-collection)
+  * [Data analysis](#data-analysis)
+  * [Thesis](#thesis)
+* [Licensing](#licensing)
+
+
+## Structure
+This repository utilizes a slightly modified version of Driven Data's [data science cookiecutter template](https://drivendata.github.io/cookiecutter-data-science/).
+As a structure used by various projects, it should allow for easier reusability and sharing among groups.
+It also helps with the reproducability of the data pipleine, and the collection of all pieces in one place.
+
+
 ## Setup and running
 
 ### Python
@@ -51,17 +72,20 @@ If permission errors occur on files created inside the docker container (such as
 ## Components
 This repository contains the four main components of the project, each with its own readme.
 
+The Jupyter notebooks in the [notebooks](notebooks) directory are primarily for exploration, and are only included here for completeness.
+They do not get updated, and may lag behind the latest changes in structure or details.
+
 ### SPIRIT
 [[README]](references/readme_spirit.md)
 The crux of the project.
-It lives in the [SPIRIT](src/ros/spirit) directory, and contains the entire ROS portion. 
+It lives in the [src/ros/spriit](src/ros/spirit) directory, and contains the entire ROS portion. 
 
 In order to run it, follow the [checklist](references/readme_spirit.md#checklist) in the SPIRIT readme.
 Note that this does not attempt to gather any data, but instead enables the user to interface with the motion capture system and fly the drone.
 
 ### Data collection 
 [[README]](references/readme_data.md)
-The code for collecting the data is in the [Data](src/data) directory.
+The code for collecting the data is in the [`src/data`](src/data) directory.
 It consists of a command line tool to record the relevant data into bagfiles, another to convert the bagfiles into CSV for easier offline analysis, and a web interface to collect user responses to a survey and NASA-TLX results.
 
 The experimentation phase also included video recording using OBS.
@@ -77,16 +101,6 @@ Some written things.
 ### Thesis
 [[README]](references/readme_thesis.md)
 Some written things.
-
-### Jupyter notebooks
-The Jupyter notebooks in the [Notebooks](notebooks) directory are primarily for exploration, and are only included here for completeness.
-They do not get updated, and may lag behind the latest changes in structure or details.
-
-
-## Structure
-This repository utilizes a slightly modified version of Driven Data's [data science cookiecutter template](https://drivendata.github.io/cookiecutter-data-science/).
-As a structure used by various projects, it should allow for easier reusability and sharing among groups.
-It also helps with the reproducability of the data pipleine, and the collection of all pieces in one place.
 
 
 ## Licensing
