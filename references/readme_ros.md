@@ -1,32 +1,7 @@
 # SPIRIT (Subimposed Past Image Records Implemented for Teleoperation)
 
-This is my Masters research project.
+This is my Masters research project, and can be found [on Github](https://github.com/masasin/spirit).
 
-The thesis (*A UAV Teleoperation System Using Subimposed Past Image Records*) can be found in the [spirit_thesis](https://github.com/masasin/spirit_thesis) repository.
-
-## Setup and running
-
-Assumptions:
-
-* Linux system (to share sound)
-* NVIDIA video card
-
-Prerequisites:
-* Docker
-* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) (to use OpenGL)
-
-Build by running the `build` file in the root directory, and run it using by running the `run` file.
-
-Note that in Kyoto University, the proxy does not allow building, and until docker allows network sharing, building must happen outside the university.
-Once a container has been built, you can use `docker ps` to find the currently running container, and save the new configuration using `docker commit`.
-Make sure to update the `run` file to reflect the container you want to run, and (ideally) add the changes to the `build` file.
-
-Run the `join` file in order to join the currently running container.
-This can be useful, for instance, for running `rostopic`, `rosbag`, or `roscore` commands.
-
-If permission errors occur on files created in the docker container (such as when commiting code), you can run the following command from outside the container in order to make you the owner again:
-
-    sudo chown -R $USER /path/to/folder
 
 ## Checklist
 
@@ -111,4 +86,6 @@ In order to run the system:
     * Ensure that the volume is not muted or low.
     * Ensure that earphones are unplugged, or worn.
     * Otherwise, stop sounds from other sources and restart the computer. The issue can be reproduced by running Google Play Music.
-  * If the controller is not detected, exit the docker container and connect again after making sure the controller is connected.
+  * If the controller is not detected:
+    * Ensure that the controller is connected.
+    * Exit the docker container and reconnect.
