@@ -19,6 +19,7 @@ Changing the localization method would enable the system to be used outdoors.
   * [Data collection](#data-collection)
   * [Data analysis](#data-analysis)
   * [Thesis](#thesis)
+* [Contribution](#contribution)
 * [Licensing](#licensing)
 
 
@@ -102,6 +103,9 @@ Some written things.
 [[README]](references/readme_thesis.md)
 Some written things.
 
+## Contribution
+Suggested improvements and known bugs are on the [issues](https://github.com/masasin/spirit/issues/) page.
+If you find something that interests you, submit your own issue, or create a pull request that I could merge.
 
 ## Licensing
 * The SPIRIT software, as well as the code used for data collection and analysis, are licensed under the MIT License.
