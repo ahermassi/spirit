@@ -81,13 +81,13 @@ They do not get updated, and may lag behind the latest changes in structure or d
 The crux of the project.
 It lives in the [`src/ros/spririt`](src/ros/spirit) directory, and contains the entire ROS portion. 
 
-In order to run it, follow the [checklist](references/readme_spirit.md#checklist) in the SPIRIT readme.
+In order to run it, follow the [checklist](references/readme_spirit.md#checklist) in the SPIRIT [readme](references/readme_spirit.md).
 Note that this does not attempt to gather any data, but instead enables the user to interface with the motion capture system and fly the drone.
 
 ### Data collection 
 [[README]](references/readme_data.md)
 The code for collecting the data is in the [`src/data`](src/data) directory.
-It consists of a command line tool to record the relevant data into bagfiles, another to convert the bagfiles into CSV for easier offline analysis, and a web interface to collect user responses to a survey and NASA-TLX results.
+It consists of a command line tool to record the relevant data into bagfiles, a script to convert the bagfiles into CSV for easier offline analysis, and a web interface to collect user responses to a survey and NASA-TLX results.
 
 The experimentation phase also included video recording using OBS.
 Note that, at the time of writing, there was no way to programmatically start and stop a recording session.
