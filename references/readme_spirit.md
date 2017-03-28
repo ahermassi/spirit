@@ -93,7 +93,7 @@ In order to run the system:
     * the drone is actually being tracked
   * If no sound plays when the drone tracking is lost:
     * Ensure that the volume is not muted or low.
-    * Ensure that earphones are unplugged, or worn.
+    * Ensure that earphones or headphones are either unplugged, or put on the ears.
     * Otherwise, stop sounds from other sources and restart the computer. The issue can be reproduced by running Google Play Music.
   * If the controller is not detected:
     * Ensure that the controller is connected.
