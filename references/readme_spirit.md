@@ -2,6 +2,9 @@
 
 This is my Masters research project, and can be found [on Github](https://github.com/masasin/spirit).
 
+## Table of Contents
+* [Checklist](#checklist)
+* [Troubleshooting](#troubleshooting)
 
 ## Checklist
 
