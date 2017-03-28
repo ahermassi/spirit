@@ -35,8 +35,7 @@ It is also possible to choose a random experiment, or an experiment which allows
   * [ ] Press the OBS hotkey to stop recording.
   * [ ] Press Ctrl+C on the keyboard in the correct terminal to stop `record_bag.py`.
   * [ ] Run `bag_to_csv.py` to be able to use the data offline.
-  
-* [ ] Safe the drone. [[checklist]](readme_spirit.md#safe-drone)
+* [ ] Safe the drone.
 * [ ] Run the surveys:
   * [ ] Run the NASA-TLX survey and follow the instructions on the screen. Press "Save" when done.
   * [ ] Run the user survey and follow the instructions on the screen. Press "Save" when done.
