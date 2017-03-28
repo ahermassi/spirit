@@ -8,22 +8,7 @@ import os
 
 import rosbag
 
-
-BAG_DIR = "../data/raw"
-ROSBAG_TOPICS = [
-    "/ardrone/ground_pose",
-    "/ardrone/imu",
-    "/ardrone/navdata",
-    # "/ardrone/odometry",
-    # "/ardrone/past_image",
-    "/ardrone/past_pose",
-    "/ardrone/pose",
-    # "/ardrone/slow_image_raw",
-    "/ardrone/tracked",
-    "/ardrone/arrived",
-    # "/rosout",
-    # "/rosout_agg",
-]
+from .config import BAG_DIR, ROSBAG_TOPICS
 
 
 def parse_args():

@@ -7,25 +7,14 @@ import os
 import rosbag_pandas
 import tqdm
 
-
-TOPICS_SUMMARIZED = [
-    "/ardrone/arrived",
-    "/ardrone/ground_pose",
-    "/ardrone/pose",
-]
-
-COLUMN_NAMES = ["arrived", "angle", "gx", "gy",
-                "qa", "qb", "qc", "qd", "x", "y", "z"]
-
-BAG_DIR = "../data/raw"
-CSV_DIR = "../data/interim"
+from .config import BAG_DIR, CSV_DIR, CSV_TOPICS, CSV_COLUMN_NAMES
 
 
 if not os.path.exists(CSV_DIR):
     os.makedirs(CSV_DIR)
 
 
-def load_bag(filename, include=TOPICS_SUMMARIZED, column_names=COLUMN_NAMES):
+def load_bag(filename, include=CSV_TOPICS, column_names=CSV_COLUMN_NAMES):
     df = rosbag_pandas.bag_to_dataframe(filename, include=include)
     pad_bag(df)
     rename_columns(df, column_names)
