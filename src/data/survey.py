@@ -6,6 +6,7 @@ from random import choice, shuffle
 
 from remi import gui, start, App
 
+from .config import SURVEY_DIR, SURVEY_FILENAME
 from .survey_utils import ExperimentType, User, Experiment, Tlx, Survey
 
 
@@ -16,7 +17,8 @@ class MyApp(App):
     def main(self):
         self.users = []
         self.save_location = (Path(__file__).parent
-                              .joinpath("../../data/raw/survey_data.pkl"))
+                              .joinpath(SURVEY_DIR)
+                              .joinpath(SURVEY_FILENAME))
 
         container = gui.Widget(width=500, margin="0px auto")
 
@@ -329,7 +331,7 @@ class MyApp(App):
         self._get_new_save_location(save_as=True)
 
     def cbk_select_pickle(self, widget):
-        file_selector = gui.FileSelectionDialog("File Selection Dialog", "Select data pickle.", False, "../../data/raw")
+        file_selector = gui.FileSelectionDialog("File Selection Dialog", "Select data pickle.", False, SURVEY_DIR)
         file_selector.set_on_confirm_value_listener(self.cbk_load)
         file_selector.show(self)
 

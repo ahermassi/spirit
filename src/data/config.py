@@ -1,5 +1,8 @@
 BAG_DIR = "../data/raw"
 CSV_DIR = "../data/interim"
+SURVEY_DIR = "../../data/raw"
+
+SURVEY_FILENAME = "survey_data.pkl"
 
 ROSBAG_TOPICS = [
     "/ardrone/ground_pose",
