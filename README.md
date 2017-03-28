@@ -3,22 +3,32 @@
 This is my Masters research project.
 I built a novel interface for the teleoperation of quadrotors, which allows the operator to have a third-person perspective of flight operations using only position information and a monocular camera.
 
+
 ## Components
-This repository contains the four main components of the project.
+This repository contains the four main components of the project, each with its own README.
 
 ### SPIRIT
-[The SPIRIT software](references/readme_spirit.md) works well.
-### Data collection [[README]](references/readme_data.md)
+[[README]](references/readme_spirit.md)
 Some written things.
-### [Data analysis](references/readme_analysis.md)
+
+### Data collection 
+[[README]](references/readme_data.md)
 Some written things.
+
+### Data analysis
+[[README]](references/readme_analysis.md)
+Some written things.
+
 ### Thesis
-[[README]](references/readme_thesis.md) Some written things.
+[[README]](references/readme_thesis.md)
+Some written things.
+
 
 ## Structure
 This repository utilizes a slightly modified version of Driven Data's [data science cookiecutter template](https://drivendata.github.io/cookiecutter-data-science/).
 As a structure used by various projects, it should allow for easier reusability and sharing among groups.
 It also helps with the reproducability of the data pipleine, and the collection of all pieces in one place.
+
 
 ## Licensing
 ![CC-BY-SA](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
