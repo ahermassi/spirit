@@ -63,6 +63,7 @@ In order to run the system:
   * [ ] Set appropriate values in the `config/launch_params.yaml` file. (Optional)
   * [ ] Regenerate the launch files: `config/regenerate_launch_files.py`.
 * [ ] Launch the system: `roslaunch spirit spirit.launch`.
+* [ ] <a name="checklist-collect-data" />If you want to collect data, start the collection according to the [data collection readme](readme_data.md).
 * [ ] Ensure that:
   * [ ] A live camera feed is displayed. (depends on configuration)
   * [ ] The past image feed is displayed. (depends on configuration)
@@ -71,6 +72,10 @@ In order to run the system:
 * [ ] Test the controller connection:
   * [ ] Tap the Emergency button (default is R1). The drone lights should turn red momentarily, and the status should change to Emergency.
 * [ ] Launch the drone and fly. Tap the Takeoff button to take off, and the Land button to land. Use the Emergency button in emergencies. Tap the Arrived button to indicate that you believe that you are at the target.
+* [ ] After landing:
+  * [ ] Stop any recording of data.
+  * [ ] Retrieve the drone.
+  * [ ] Disconnect and charge the battery.
 
 ## Troubleshooting
 
