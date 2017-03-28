@@ -31,13 +31,10 @@ It also helps with the reproducability of the data pipleine, and the collection 
 
 
 ## Licensing
-![CC-BY-SA](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
-Copyright © 2017 by Jean Nassar.
-
-This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
-To view a copy of this license, visit:
-http://creativecommons.org/licenses/by-sa/4.0/
-
-The accompanying software is licensed under the Berkeley Software Distribution 3-Clause License, except where otherwise noted.
+The SPIRIT software is licensed under the Berkeley Software Distribution 3-Clause License, except where otherwise noted.
+The data collection and analysis code is licensed under the MIT License.
+The thesis is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
 
 Permissions beyond the scope of this license are administered by Jean Nassar. Please contact jeannassar5+licensing@gmail.com for more information.
+
+Copyright © 2017 by Jean Nassar.
