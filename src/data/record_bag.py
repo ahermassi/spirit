@@ -8,7 +8,7 @@ import os
 
 import rosbag
 
-from .config import BAG_DIR, ROSBAG_TOPICS
+from config import BAG_DIR, ROSBAG_TOPICS
 
 
 def parse_args():

@@ -7,7 +7,7 @@ import os
 import rosbag_pandas
 import tqdm
 
-from .config import BAG_DIR, CSV_DIR, CSV_TOPICS, CSV_COLUMN_NAMES
+from config import BAG_DIR, CSV_DIR, CSV_TOPICS, CSV_COLUMN_NAMES
 
 
 if not os.path.exists(CSV_DIR):
