@@ -335,9 +335,16 @@ def do_differences_surveys(recalculate=False):
 
 
 def do_differences_tlx(recalculate=False):
-    trace_cols = ["mental", "physical", "temporal", "performance",
-                  "effort", "frustration", "tlx"]
-    trace_coeffs = [[(0, 45), 20]]*6 + [[(0, 250), 100]]
+    trace_cols = [
+        "mental",
+        # "physical",  # Physical does not converge.
+        "temporal",
+        "performance",
+        "effort",
+        "frustration",
+        "tlx",
+    ]
+    trace_coeffs = [[(0, 45), 20]]*(len(trace_cols) - 1) + [[(0, 250), 100]]
 
     _do_differences(tlx, trace_cols, trace_coeffs, recalculate)
 
