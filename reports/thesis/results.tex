@@ -178,7 +178,7 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
     \begin{subfigure}[b]{0.45\textwidth}
       \input{img/plots/tlx_results.pgf}
       \caption{\gls{nasatlx} aggregate results.}
-      \label{fig:results}
+      \label{fig:tlx_results}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
@@ -190,11 +190,11 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
     \label{fig:tlx}
   \end{figure}
 
-  The collated data is in \tref{tab:mean_sd_tlx}.
+  The data is summarized in \tref{tab:tlx_summary}.
 
   \begin{table}[h]
     \centering
-    \caption[NASA-TLX data \sym{mean} and \sym{std}]{The means and standard deviations of \gls{nasatlx} data.}
+    \caption[NASA-TLX data summary]{The summary of the \gls{nasatlx} data.}
     \begin{tabular}{lrrrrrrrr}
       \toprule
       & \multicolumn{2}{c}{Onboard} & \multicolumn{2}{c}{\gls{spirit}} \\
@@ -217,7 +217,7 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
       & $-50.889$ & $-2.77594$ & 0.02408 & $-0.978$\\
       \bottomrule
     \end{tabular}
-    \label{tab:mean_sd_tlx}
+    \label{tab:tlx_summary}
   \end{table}
 
   A large, significant reduction of 35.74\% in the weighted \gls{tlx} score was seen.
@@ -225,21 +225,51 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
   There was a medium to high effect for physical (\sym{effect}=$-0.626$), temporal (\sym{effect}=$-0.666$), performance (\sym{effect}=$-0.699$) effort (\sym{effect}=$-0.718$), and overall score (\sym{effect}=$-0.978$).
 
   \section{Survey}
-  \begin{figure}[h]
-    \centering
-    \input{img/plots/survey_overview.pgf}
-    \caption[Survey results]{Results for the exit survey.}
-    \label{fig:survey}
-  \end{figure}
+  The six components in \fref{fig:survey} are, in order:
+
+  \begin{itemize}
+    \item \textbf{\acrshort{oraware}:} \acrlong{oraware}
+    \item \textbf{\acrshort{orcontrol}:} \acrlong{orcontrol}
+    \item \textbf{\acrshort{posaware}:} \acrlong{relaware}
+    \item \textbf{\acrshort{poscontrol}:} \acrlong{poscontrol}
+    \item \textbf{\acrshort{relaware}:} \acrlong{relaware}
+    \item \textbf{\acrshort{relcontrol}:} \acrlong{relcontrol}
+  \end{itemize}
+
+  \noindent and the survey score is \acrshort{surveyscore}.
+  
+  % \begin{figure}[h]
+    % \centering
+    % \input{img/plots/survey_overview.pgf}
+    % \caption[Survey results]{Results for the exit survey.}
+    % \label{fig:survey}
+  % \end{figure}
 
   \fref{fig:survey} shows the result of the exit survey.
   Again, scores increased for each category.
 
-  The collated data is in \tref{tab:mean_sd_survey}.
+  \begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+      \input{img/plots/survey_results.pgf}
+      \caption{\gls{nasatlx} aggregate results.}
+      \label{fig:survey_results}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+      \input{img/plots/survey_components.pgf}
+      \caption{\gls{nasatlx} component analysis.}
+      \label{fig:survey_components}
+    \end{subfigure}
+    \caption[NASA-TLX results]{Results for the \gls{nasatlx} survey.}
+    \label{fig:survey}
+  \end{figure}
+
+  The data is summarized in \tref{tab:survey_summary}.
 
   \begin{table}[h]
     \centering
-    \caption[Survey data \sym{mean} and \sym{std}]{The means and standard deviations of the exit survey data.}
+    \caption[Survey data summary]{The summary of the exit survey data.}
     \begin{tabular}{lrrrrrrrr}
       \toprule
       & \multicolumn{2}{c}{Onboard} & \multicolumn{2}{c}{\gls{spirit}} \\
@@ -262,7 +292,7 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
       &  8.222 & 2.93892 & 0.01874 & 1.264\\
       \bottomrule
     \end{tabular}
-    \label{tab:mean_sd_survey}
+    \label{tab:survey_summary}
   \end{table}
 
   \gls{spirit} did not affect orientation awareness or control.

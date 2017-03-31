@@ -258,7 +258,22 @@ def do_surveys():
         plt.ylim(0, plt.ylim()[1])
         plt.ylabel("survey score")
 
-    with figure("survey_components", size=fig_size(0.9, 0.5)):
+    with figure("survey_components", size=fig_size(0.44, 1)):
+        components = [r"orientation_understanding", r"orientation_control",
+                      r"position_understanding", r"position_control",
+                      r"spacial_understanding", r"spacial_control"]
+        molten = pd.melt(surveys, id_vars=["user", "experiment", "order"],
+                         value_vars=components,
+                         var_name="question", value_name="rating")
+        sns.barplot(x=r"question", y="rating", hue="experiment", data=molten)
+
+        plt.gca().set_xticklabels(
+                ["OA", "OC", "PA", "PC", "RA", "RC"])
+
+        plt.xlabel("question")
+        plt.ylabel("rating")
+
+    with figure("survey_overview", size=fig_size(0.9, 0.5)):
         molten = pd.melt(surveys, id_vars=["user", "experiment", "order"],
                          value_vars=[r"orientation_understanding",
                                      r"orientation_control",
