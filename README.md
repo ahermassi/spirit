@@ -136,6 +136,6 @@ If you find something that interests you, submit your own issue, or create a pul
 * The SPIRIT software, as well as the code used for data collection and analysis, are licensed under the [MIT License](LICENSE).
 * The thesis is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](reports/thesis/LICENSE.md).
 
-Permissions beyond the scope of this license are administered by Jean Nassar. Please contact jeannassar5+licensing@gmail.com for more information.
+Permissions beyond the scope of these licenses are administered by Jean Nassar. Please contact jeannassar5+licensing@gmail.com for more information.
 
 Copyright © 2017 by Jean Nassar.
