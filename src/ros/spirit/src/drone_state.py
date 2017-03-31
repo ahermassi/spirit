@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# (C) 2016  Jean Nassar
-# Released under BSD version 4
 
 
 class DroneState(object):

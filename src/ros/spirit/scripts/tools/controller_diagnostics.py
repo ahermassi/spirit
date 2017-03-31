@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (C) 2016  Jean Nassar
-# Released under BSD version 4
 """
 Implement a controller in order to control the robot.
 

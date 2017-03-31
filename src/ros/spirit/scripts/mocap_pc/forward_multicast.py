@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# (C) 2016  Jean Nassar
-# Released under BSD version 4
 """
 日本語版のドキュメンテーションは英語版の下にある。
 

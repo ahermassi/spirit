@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# (C) 2016  Jean Nassar
-# Released under BSD
 """
 Helper functions for use with OpenGL.
 
