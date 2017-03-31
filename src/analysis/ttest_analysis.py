@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from .csv_analysis import load_surveys
+from .csv_analysis import analyze_data, load_surveys
 from ..data.survey_utils import ExperimentType
 
 
@@ -56,6 +56,12 @@ def do_ttest(df, columns, save_name=None,
 
 
 if __name__ == "__main__":
+    results, analyses = analyze_data()
+    # analyses_columns = ["duration", "dist_err", "x_err", "y_err", "rms_x",
+    #                     "rms_y", "path_length", "move_l", "move_r", "move_x",
+    #                     "move_b", "move_f", "move_y"]
+    # do_ttest(analyses, analyses_columns, "analyses")
+
     users, tlx, surveys = load_surveys()
     tlx_columns = ["mental", "physical", "temporal", "performance", "effort",
                    "frustration", "tlx"]
