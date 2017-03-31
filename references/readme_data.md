@@ -3,9 +3,10 @@
 The source code for data collection is in the [`src/data`](../src/data) directory.
 
 * [`record_bag.py`](../src/data/record_bag.py) is a command line tool which records the relevant data into a ROS Bag file.
-* [`bag_to_csv.py`](../src/data/bag_to_csv.py) is a script which converts new bagfiles into CSV 
+* [`bag_to_csv.py`](../src/data/bag_to_csv.py) is a script which converts new bagfiles into CSV for consumption offline.
 * [`survey.py`](../src/data/survey.py) is a web interface to collect user information, and their opinions after each run of the experiment.
 Since [`survey.py`](../src/data/survey.py) requires a `__main__` module to run, a convenience script, [`run_survey`](../src/data/run_survey), which can be run from anywhere.
+Note that this code is extremely messy since it was my first time making something with a GUI, and future users may want to use something else to create a better, cleaner, more modular interface.
 
 [`config.py`](../src/data/config.py) contains the configuration options for all the data collection tools.
 By default, bagfiles and survey data are stored in [`data/raw`](../data/raw), while the CSV data is stored in [`data/interim`](../data/interim).
