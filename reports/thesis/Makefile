@@ -1,5 +1,3 @@
-# (C) 2016 Jean Nassar. Some Rights Reserved
-# Except where otherwise noted, this work is licensed under the Creative Commons Attribution-ShareAlike License, version 4
 MASTER = mshtsy_thesis
 SOURCES = $(MASTER).tex $(wildcard *.tex *.sty *.py) Makefile
 FIGURES = $(shell find img/* -type f)
