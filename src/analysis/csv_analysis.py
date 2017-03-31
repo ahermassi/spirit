@@ -18,6 +18,8 @@ CSV_DIR = DATA_DIR.joinpath("interim")
 # Named Tuples
 RunData = namedtuple("RunData", "experiment user run")
 TlxResponse = namedtuple("TlxResponse", "code raw weight score")
+Coords = namedtuple("Coords", "x y")
+TARGET = Coords(0, 6)
 
 # Regexes
 FILENAME_PATTERN = "experiment-(\d)_user-(\d+)_run-(\d+)"

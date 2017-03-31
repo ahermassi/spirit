@@ -1,13 +1,9 @@
-from collections import namedtuple
-
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn.apionly as sns
 
-
-Coords = namedtuple("Coords", "x y")
-TARGET = Coords(0, 6)
+from ..analysis.csv_analysis import Coords, TARGET
 
 
 def change_color(color, saturation=0, value=0):
