@@ -195,9 +195,9 @@ def do_errors():
                          value_vars=["rms", "rms_x", "rms_y"])
         g = sns.factorplot(x="experiment", y="value", col="variable",
                            data=molten, kind="box")
-        g.fig.axes[0].set_title("RMS Error")
-        g.fig.axes[1].set_title("RMS Error in $x$")
-        g.fig.axes[2].set_title("RMS Error in $y$")
+        g.fig.axes[0].set_title("RMS Error*")
+        g.fig.axes[1].set_title("RMS Error in $x$*")
+        g.fig.axes[2].set_title("RMS Error in $y$*")
         g.fig.axes[0].set_ylabel("error (m)")
 
     with figure("rms_runs", size=fig_size(0.9, 0.4)):
@@ -220,9 +220,9 @@ def do_errors():
                          value_vars=[r"dist_err", r"x_err", r"y_err"])
         g = sns.factorplot(x="experiment", y="value", col="variable",
                            data=molten, kind="box")
-        g.fig.axes[0].set_title("Distance from target")
+        g.fig.axes[0].set_title("Distance from target*")
         g.fig.axes[1].set_title("Distance from target in $x$")
-        g.fig.axes[2].set_title("Distance from target in $y$")
+        g.fig.axes[2].set_title("Distance from target in $y$*")
         g.fig.axes[0].set_ylabel("distance (m)")
         g.axes[0][0].axhline(0, color="black", linewidth=1, zorder=-1)
         g.axes[0][1].axhline(0, color="black", linewidth=1, zorder=-1)
@@ -235,7 +235,7 @@ def do_surveys():
         sns.swarmplot(x="experiment", y=r"tlx",
                       data=tlx, palette=cmap_complement, split=True)
         plt.ylim(0, plt.ylim()[1])
-        plt.ylabel("NASA-TLX weighted score")
+        plt.ylabel("NASA-TLX weighted score*")
 
     with figure("tlx_components", size=fig_size(0.44, 1)):
         components = ["mental", "physical", "temporal", "performance",
@@ -256,7 +256,7 @@ def do_surveys():
         sns.swarmplot(x="experiment", y=r"total", data=surveys,
                       palette=cmap_complement, split=True)
         plt.ylim(0, plt.ylim()[1])
-        plt.ylabel("survey score")
+        plt.ylabel("survey score*")
 
     with figure("survey_components", size=fig_size(0.44, 1)):
         components = [r"orientation_understanding", r"orientation_control",
@@ -268,7 +268,7 @@ def do_surveys():
         sns.barplot(x=r"question", y="rating", hue="experiment", data=molten)
 
         plt.gca().set_xticklabels(
-                ["OA", "OC", "PA", "PC", "RA", "RC"])
+                ["OA", "OC", "PA*", "PC*", "RA*", "RC*"])
 
         plt.xlabel("question")
         plt.ylabel("rating")
@@ -289,8 +289,8 @@ def do_surveys():
 
         plt.gca().set_yticklabels(
                 ["angle aware", "angle control",
-                 "position aware", "position control",
-                 "rel. pos. aware", "rel. pos. control"])
+                 "position aware*", "position control*",
+                 "rel. pos. aware*", "rel. pos. control*"])
 
         handles, labels = g.get_legend_handles_labels()
         plt.legend(handles[2:], labels[2:])
