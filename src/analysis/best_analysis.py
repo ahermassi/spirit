@@ -178,5 +178,5 @@ if __name__ == "__main__":
     do_differences_analyses(recalculate=True)
 
     users, tlx, surveys = load_surveys()
-    do_differences_surveys(recalculate=True)
-    do_differences_tlx(recalculate=True)
+    # do_differences_surveys(recalculate=True)
+    # do_differences_tlx(recalculate=True)
