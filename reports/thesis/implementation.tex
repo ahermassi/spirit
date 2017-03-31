@@ -161,14 +161,14 @@
     \end{equation}
     where \sym{posx}, \sym{posy}, and \sym{posz} are the $x$, $y$, and $z$ components.
 
-    The orientation of the drone is represented by a quaternion, \sym{quat}, and defined as:
+    The orientation of the drone is represented by a quaternion, \sym{quat}, and defined in the \gls{jpl} convention as:
 
     \begin{equation}
       \sym{quat} = \begin{bmatrix}
+	\sym{quatw} \\
 	\sym{quatx} \\
 	\sym{quaty} \\
 	\sym{quatz} \\
-	\sym{quatw} \\
       \end{bmatrix}
     \end{equation}
     such that the quaternion can also be represented as $\sym{quatw} + \sym{quatx}\mathbf{i} + \sym{quaty}\mathbf{j} + \sym{quatz}\mathbf{k}$.
@@ -180,13 +180,29 @@
 
     The state vector is $\sym{state} = \begin{bmatrix}\sym{pos} & \sym{quat}\end{bmatrix}^\top$.
     
-    The rotation matrix \sym{rotmat}, based on quaternions, is defined as:\cite{wiki_rotmat}
+    The rotation matrix \sym{rotmat}, based on quaternions, is defined as: \cite{wiki_rotmat}
 
     \begin{equation}
       \sym{rotmat} = \begin{bmatrix}
 	1 - 2\sym{quaty}^2 - 2\sym{quatz}^2 & 2\sym{quatx}\sym{quaty} - 2\sym{quatz}\sym{quatw} & 2\sym{quatx}\sym{quatz} + 2\sym{quaty}\sym{quatw} \\
 	2\sym{quatx}\sym{quaty} + 2\sym{quatz}\sym{quatw} & 1 - 2\sym{quatx}^2 - 2\sym{quatz}^2 & 2\sym{quaty}\sym{quatz} - 2\sym{quatx}\sym{quatw} \\
 	2\sym{quatx}\sym{quatz} - 2\sym{quaty}\sym{quatw} & 2\sym{quaty}\sym{quatz} + 2\sym{quatx}\sym{quatw} & 1 - 2\sym{quatx}^2 - 2\sym{quaty}^2
+      \end{bmatrix}
+    \end{equation}
+
+    A quaternion can be converted into Euler angles using: \cite{blanco2013}
+
+    \begin{equation}
+      \begin{bmatrix}
+	\sym{roll} \\
+	\sym{pitch} \\
+	\sym{yaw} \\
+      \end{bmatrix} = \begin{bmatrix}
+	\arctan{\frac{2\left(\sym{quatw}\sym{quatx} + \sym{quaty}\sym{quatz}\right)}
+		     {1 - 2\left(\sym{quatx}^2 + \sym{quaty}^2\right)}} \\
+	\arcsin{\left(2\left(\sym{quatw}\sym{quaty} - \sym{quatz}\sym{quatx}\right)\right)} \\
+	\arctan{\frac{2\left(\sym{quatw}\sym{quatz} + \sym{quatx}\sym{quaty}\right)}
+		     {1 - 2\left(\sym{quaty}^2 + \sym{quatz}^2\right)}} \\
       \end{bmatrix}
     \end{equation}
 
@@ -205,7 +221,7 @@
         \Delta\sym{posz}
       \end{bmatrix}_{\sym{rfprocessed}\sym{rfdrone}}
     \end{equation}
-
+ 
     \subsection{Relative orientation}
     In order to find the relative orientation of the drone with respect to the frame being processed, we need to find the quaternion product.
 
@@ -219,12 +235,12 @@
       \sym{quatim} = \begin{bmatrix}\sym{quatx} \\ \sym{quaty} \\ \sym{quatz}\end{bmatrix}
     \end{equation}
 
-    and $\sym{quat} = \begin{bmatrix}\sym{quatim} & \sym{quatw}\end{bmatrix}^\top$. The solution is:
+    and $\sym{quat} = \begin{bmatrix}\sym{quatw} & \sym{quatim}\end{bmatrix}^\top$. The solution is:
 
     \begin{equation}
       ^{\sym{rfprocessed}}_{\sym{rfdrone}}\Delta\sym{quat} = \begin{bmatrix}
-	\sym{quatw}_{\sym{rfprocessed}}\sym{quatim}_{\sym{rfdrone}} + \sym{quatw}_{\sym{rfdrone}}\sym{quatim}_{\sym{rfprocessed}} + \sym{quatim}_{\sym{rfprocessed}}\times\sym{quatim}_{\sym{rfdrone}} \\
 	\sym{quatw}_{\sym{rfprocessed}}\sym{quatw}_{\sym{rfdrone}} - \sym{quatim}_{\sym{rfprocessed}}\cdot\sym{quatim}_{\sym{rfdrone}}
+	\sym{quatw}_{\sym{rfprocessed}}\sym{quatim}_{\sym{rfdrone}} + \sym{quatw}_{\sym{rfdrone}}\sym{quatim}_{\sym{rfprocessed}} + \sym{quatim}_{\sym{rfprocessed}}\times\sym{quatim}_{\sym{rfdrone}} \\
       \end{bmatrix}
     \end{equation}
     
@@ -431,7 +447,7 @@
       \sym{uvec} &= 
       \begin{dcases}
 	\begin{bmatrix}1 & 0 & 0\end{bmatrix},& \text{if } \sym{rotang} = 0 \\
-	\begin{bmatrix}\sym{quatx} & \sym{quaty} & \sym{quatz}\end{bmatrix},& \text{if } \sym{rotang} \bmod 180 = 0 \\
+	\begin{bmatrix}\sym{quatx} & \sym{quaty} & \sym{quatz}\end{bmatrix},& \text{if } \sym{rotang} \bmod 180^\circ = 0 \\
       \frac{\begin{bmatrix}\sym{quatx} & \sym{quaty} & \sym{quatz}\end{bmatrix}}{\sqrt{1 - \sym{quatw}^2}} & \text{otherwise}
       \end{dcases}
     \end{align}
@@ -442,8 +458,8 @@
     First, the relative position is calculated as $^{\sym{rfdrone}}_{\sym{rfprocessed}}\Delta\sym{pos} = \sym{pos}_{\sym{rfprocessed}} - \sym{pos}_{\sym{rfdrone}}$, and the orientations of the frame and the drone are converted into an \gls{opengl} quaternion using the following mapping:
 
     \begin{equation}
-      \begin{bmatrix}\sym{quatx} & \sym{quaty} & \sym{quatz} & \sym{quatw}\end{bmatrix} \mapsto
-      \begin{bmatrix}-\sym{quatx} & \sym{quatz} & \sym{quaty} & \sym{quatw}\end{bmatrix}
+      \begin{bmatrix}\sym{quatw} & \sym{quatx} & \sym{quaty} & \sym{quatz}\end{bmatrix} \mapsto
+      \begin{bmatrix}\sym{quatw} & -\sym{quatx} & \sym{quatz} & \sym{quaty}\end{bmatrix}
     \end{equation}
 
     In a new matrix, the perspective is rotated by the same amount the frame is.

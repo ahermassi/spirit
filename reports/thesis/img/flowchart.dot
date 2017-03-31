@@ -3,7 +3,7 @@ digraph spirit {
     node [fontsize=6];
     node [shape = trapezium];
         ardrone [label = "AR.Drone"];
-        mocap [label = "Mocap (200 Hz)"];
+        mocap [label = "Motion capture (200 Hz)"];
     node [shape = oval];
         frames [label = "Frame buffer"];
     node [shape = rect];

@@ -30,6 +30,8 @@ In its current implementation, it just includes the necessary files in the right
 All other `.tex` files are part of the thesis and can thus be [included individually](../reports/thesis/mshtsy_thesis.tex#L9).
 
 Images are in the [`img`](../reports/thesis/img) directory, and plots are in the [`plots`](../reports/thesis/img/plots) subdirectory.
+Graphviz is used for the flowcharts.
+Currently, the only flowchart is in [`img/flowchart.dot`](../reports/thesis/img/flowchart.dot`).
 
 ## Building
 Before building, please run the analysis suite in order to generate the PGF plots to be included.
