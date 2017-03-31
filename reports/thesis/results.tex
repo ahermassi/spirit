@@ -190,7 +190,36 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
     \label{fig:tlx}
   \end{figure}
 
-  The collated data is in \tref{tab:mean_sd_tlx}, and analyzed in \tref{tab:diff_means_tlx}.
+  The collated data is in \tref{tab:mean_sd_tlx}.
+
+  \begin{table}[h]
+    \centering
+    \caption[NASA-TLX data \sym{mean} and \sym{std}]{The means and standard deviations of \gls{nasatlx} data.}
+    \begin{tabular}{lrrrrrrrr}
+      \toprule
+      & \multicolumn{2}{c}{Onboard} & \multicolumn{2}{c}{\gls{spirit}} \\
+      & $\sym{mean}$ & $\sym{std}$ & $\sym{mean}$ & $\sym{std}$ 
+      & $\Delta\sym{mean}$ & $t$ & \sym{pvalue} & \sym{effect} \\
+      \midrule
+      \acrshort{mental}      &  29.000 & 15.922 & 24.222 & 17.908 
+      &  $-4.778$ & $-1.29269$ & 0.23220 & $-0.253$\\
+      \acrshort{physical}    &   7.556 & 12.885 &  1.111 &  2.261 
+      &  $-6.444$ & $-1.81051$ & 0.10781 & $-0.626$\\
+      \acrshort{temporal}    &  15.667 & 19.339 &  5.333 &  3.808 
+      & $-10.333$ & $-1.73228$ & 0.12146 & $-0.666$\\
+      \acrshort{performance} &  27.222 & 16.998 & 16.667 &  8.902 
+      & $-10.556$ & $-1.64399$ & 0.13880 & $-0.699$\\
+      \acrshort{effort}      &  32.667 & 19.755 & 20.111 & 10.167 
+      & $-12.556$ & $-2.19108$ & 0.05982 & $-0.718$\\
+      \acrshort{frustration} &  23.556 & 22.328 & 17.333 & 15.149 
+      &  $-6.222$ & $-1.28600$ & 0.23441 & $-0.293$\\
+      \acrshort{tlxscore}    & 135.667 & 56.214 & 84.778 & 34.662 
+      & $-50.889$ & $-2.77594$ & 0.02408 & $-0.978$\\
+      \bottomrule
+    \end{tabular}
+    \label{tab:mean_sd_tlx}
+  \end{table}
+
   A large, significant reduction of 35.74\% in the weighted \gls{tlx} score was seen.
   Analysis of the components show that the scores decreased across the board.
   There was a medium to high effect for physical (\sym{effect}=$-0.626$), temporal (\sym{effect}=$-0.666$), performance (\sym{effect}=$-0.699$) effort (\sym{effect}=$-0.718$), and overall score (\sym{effect}=$-0.978$).
@@ -206,12 +235,40 @@ Values of 0.2, 0.5, and 0.8 can be considered small, medium, and large effects r
   \fref{fig:survey} shows the result of the exit survey.
   Again, scores increased for each category.
 
-  The collated data is in \tref{tab:mean_sd_survey}, and analyzed in \tref{tab:diff_means_survey}.
+  The collated data is in \tref{tab:mean_sd_survey}.
+
+  \begin{table}[h]
+    \centering
+    \caption[Survey data \sym{mean} and \sym{std}]{The means and standard deviations of the exit survey data.}
+    \begin{tabular}{lrrrrrrrr}
+      \toprule
+      & \multicolumn{2}{c}{Onboard} & \multicolumn{2}{c}{\gls{spirit}} \\
+      & $\sym{mean}$ & $\sym{std}$ & $\sym{mean}$ & $\sym{std}$ 
+      & $\Delta\sym{mean}$ & $t$ & \sym{pvalue} & \sym{effect} \\
+      \midrule
+      \acrshort{oraware} & 4.111 & 1.269 & 4.333 & 1.323 
+      &  0.222 & 0.32552 & 0.75314 & 0.154\\
+      \acrshort{orcontrol} & 4.000 & 1.581 & 4.222 & 1.302 
+      &  0.222 & 0.29251 & 0.77734 & 0.138\\
+      \acrshort{posaware} & 3.222 & 1.202 & 4.667 & 1.000 
+      &  1.444 & 2.87122 & 0.02079 & 1.173\\
+      \acrshort{poscontrol} & 3.222 & 1.481 & 4.556 & 1.130 
+      &  1.333 & 2.41209 & 0.04237 & 0.909\\
+      \acrshort{relaware} & 2.111 & 0.928 & 4.889 & 1.054 
+      &  2.778 & 4.85643 & 0.00126 & 2.512\\
+      \acrshort{relcontrol} & 2.556 & 1.509 & 4.778 & 1.302 
+      &  2.222 & 3.25515 & 0.01161 & 1.416\\
+      \acrshort{surveyscore} & 19.222 & 6.399 & 27.444 & 5.223 
+      &  8.222 & 2.93892 & 0.01874 & 1.264\\
+      \bottomrule
+    \end{tabular}
+    \label{tab:mean_sd_survey}
+  \end{table}
+
   \gls{spirit} did not affect orientation awareness or control.
   However, it significantly increased awareness and control for both absolute and relative positioning.
   The aggregate score also significantly increased.
 
-  The largest effect was on the abillity to stay above the target (\sym{effect}=2.511, $p$=0.00126).
+  The largest effect was on the awareness of the position of the drone with respect to the target (\sym{effect}=2.512, \sym{pvalue}=0.00126).
   One strategy that \gls{spirit} users utilized was slewing to the side in order to get a perspective view of the location of the drone with respect to the target.
   By extrapolating the vertical edges of the target, they were able to increase their understanding of the situation.
-
