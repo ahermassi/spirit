@@ -60,7 +60,7 @@ Prerequisites:
 
 Build by running the `build` file in the base directory, and run it using by running the `run` file.
 
-Note that in Kyoto University, the proxy does not allow building, and until docker allows network sharing, building must happen outside the university.
+Note that in Kyoto University, the proxy does not allow building, and until Docker allows network sharing, building must happen outside the university.
 
 Once a container has been built, you can use `docker ps` to find the currently running container, and save any new configurations using `docker commit`.
 Make sure to update the `run` file to reflect the container you want to run, and (ideally) add the changes to `Dockerfile`.
