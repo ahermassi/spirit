@@ -78,7 +78,7 @@ If permission errors occur on files created inside the docker container (such as
 ## Components
 This repository contains the four main components of the project, each with its own readme.
 
-The Jupyter notebooks in the [`notebooks`](notebooks) directory are primarily for exploration, and are only included here for completeness.
+The Jupyter notebooks in the [`notebooks`](notebooks) directory are primarily for exploration, and are included here for completeness.
 They do not get updated, and may lag behind the latest changes in structure or details.
 
 ### SPIRIT
@@ -106,7 +106,7 @@ The [`src/visualization`](src/visualization) directory contains [`latexify.py`](
 
 ### Thesis
 [[README]](references/readme_thesis.md)
-Note that the thesis requires the analysis suite to be run first in order to generate the `.pgf` graphs and the Bayesian data.
+Note that the thesis requires the analysis suite to be run first in order to generate the `.pgf` graphs and the analyzed data.
 
 ## Contribution
 Suggested improvements and known bugs are on the [issues](https://github.com/masasin/spirit/issues/) page.
