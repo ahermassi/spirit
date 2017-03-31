@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+script_dir=$(dirname -- "$(readlink -e -- "$BASH_SOURCE")")
+
+cd $script_dir/../..
+python -m src.visualization.plot_thesis
