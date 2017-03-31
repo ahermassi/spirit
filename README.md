@@ -17,7 +17,7 @@ Changing the localization method would enable the system to be used outdoors.
 * [Components](#components)
   * [SPIRIT](#spirit)
   * [Data collection](#data-collection)
-  * [Data analysis](#data-analysis)
+  * [Data analysis and visualization](#data-analysis-and-visualization)
   * [Thesis](#thesis)
 * [Contribution](#contribution)
 * [Licensing](#licensing)
@@ -93,15 +93,15 @@ The experimentation phase also included video recording using OBS.
 Note that, at the time of writing, there was no way to programmatically start and stop a recording session.
 As such, this operation must still be done manually.
 
-See the [readme](references/readme_data.md) for more details.
-
-### Data analysis
+### Data analysis and visualization
 [[README]](references/readme_analysis.md)
-Some written things.
+The [`src/analysis`](src/analysis) directory contains a tool to properly load and parse the generated CSV files; it is not called directly. It is also possible to perform Bayesian Estimation Supercedes the *t* test (BEST) and *t* test analysis.
+
+The [`src/visualization`](src/visualization) directory contains [`latexify.py`](src/visualization/latexify.py), a lightweight `matplotlib` wrapper which allows easier figure generation and `.pgf` plot exporting, [`plot_tools.py`](src/visualization/plot_tools.py), which provides convenience functions for the various types of plots to be generated, and [`plot_thesis.py`](src/visualization/plot_thesis.py), which creates the actual plots.
 
 ### Thesis
 [[README]](references/readme_thesis.md)
-Some written things.
+Note that the thesis requires the analysis suite to be run first in order to generate the `.pgf` graphs and the Bayesian data.
 
 ## Contribution
 Suggested improvements and known bugs are on the [issues](https://github.com/masasin/spirit/issues/) page.
