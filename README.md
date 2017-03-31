@@ -11,9 +11,10 @@ Changing the localization method would enable the system to be used outdoors.
 
 * [Structure](#structure)
   * [Data retention](#data-retention)
-* [Setup and running](#setup-and-running)
+* [Setup and execution](#setup-and-execution)
   * [Python](#python)
   * [Docker](#docker)
+  * [LaTeX](#latex)
   * [Troubleshooting](#troubleshooting)
 * [Components](#components)
   * [SPIRIT](#spirit)
@@ -34,7 +35,7 @@ Due to privacy requirements at Kyoto University, the data is not included in thi
 If necessary, it may be acquired by contacting Prof Takahiro Endo at the Mechatronics Laboratory at endo@me.kyoto-u.ac.jp.
 
 
-## Setup and running
+## Setup and execution
 
 ### Python
 Assumptions:
@@ -69,6 +70,20 @@ Run the `join` file in order to join the currently running container.
 This can be useful, for instance, for running some of the data collection or analysis programs.
 
 If permission errors occur on files created inside the docker container (such as when commiting code), you can run the `fix_permissions` script from outside the container in order to make you the owner again.
+
+### LaTeX
+
+Assumptions:
+* A functioning [TeXLive](https://www.tug.org/texlive) install, including XeLaTeX and latexmk.
+
+Install the following fonts and have them accessible by TeXLive:
+
+* Linux Libertine O
+* Linux Biolinum O
+* Deja Vu Sans Mono
+* IPA Mincho (明朝)
+
+Alternatively, change the font used in [`masastyle.sty`](reports/thesis/masastyle.sty#L64).
 
 ### Troubleshooting
 
@@ -106,7 +121,12 @@ The [`src/visualization`](src/visualization) directory contains [`latexify.py`](
 
 ### Thesis
 [[README]](references/readme_thesis.md)
-Note that the thesis requires the analysis suite to be run first in order to generate the `.pgf` graphs and the analyzed data.
+All the files for the thesis are contained in the [`reports/thesis`](reports/thesis) directory.
+
+Before building, please run the analysis suite in order to generate the PGF plots to be included.
+On first build, you need to use `make full` to generate the necessary files.
+For changes in the glossary to be reflected, `make refs` needs to be run.
+Otherwise, `make` is usually enough.
 
 ## Contribution
 Suggested improvements and known bugs are on the [issues](https://github.com/masasin/spirit/issues/) page.
