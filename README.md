@@ -10,6 +10,7 @@ Changing the localization method would enable the system to be used outdoors.
 ## Table of Contents
 
 * [Structure](#structure)
+  * [Data retention](#data-retention)
 * [Setup and running](#setup-and-running)
   * [Python](#python)
   * [Docker](#docker)
@@ -27,6 +28,10 @@ Changing the localization method would enable the system to be used outdoors.
 This repository utilizes a slightly modified version of Driven Data's [data science cookiecutter template](https://drivendata.github.io/cookiecutter-data-science/).
 As a structure used by various projects, it should allow for easier reusability and sharing among groups.
 It also helps with the reproducability of the data pipleine, and the collection of all pieces in one place.
+
+### Data retention
+Due to privacy requirements at Kyoto University, the data is not included in this repository.
+If necessary, it may be acquired by contacting Prof Takahiro Endo at the Mechatronics Laboratory at endo@me.kyoto-u.ac.jp.
 
 
 ## Setup and running
