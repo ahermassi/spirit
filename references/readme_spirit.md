@@ -43,19 +43,20 @@ In order to run the system:
 * [ ] Set up the operating station. (Linux environment)
   * [ ] Create a Wired Ethernet connection with the following settings:
     * Automatically connect to this network when it is available: True
+    * Name: Mocap
     * IPv4 Method: Manual
     * Address: 192.168.0.2
-    * Netmask: 255.255.255.0
+    * Netmask: 255.255.255.0 or 24
     * Gateway: 192.168.0.1
   * [ ] Activate the controller by pressing the central PS button.
   * [ ] Ensure that the volume is high enough, and that any earphones are worn.
   * [ ] Run the docker container.
 * [ ] Set up the drone.
-    * [ ] Charge the battery if it is not charged. WARNING: Do not leave on charge for too long when full.
+    * [ ] Charge the battery if it is not charged. **WARNING: Do not leave on charge for too long when full.**
     * [ ] Connect the battery. 
     * [ ] Put the indoor hull on the drone.
     * [ ] Ensure correct startup.
-    * [ ] Connect the operating station to the drone WiFi. The password is the string of digits on the SSID.
+    * [ ] Connect the operating station to the drone WiFi. It is not password protected.
 * [ ] Set up the ROS environment. (Docker container on operating station)
   * [ ] Run the following commands to enable the necessary packages inside the work environment:
     * [ ] `workon spirit`
