@@ -8,6 +8,8 @@ This repository utilizes a slightly modified version of Driven Data's [data scie
 As a structure used by various projects, it should allow for easier reusability and sharing among groups.
 It also helps with the reproducability of the data pipleine, and the collection of all pieces in one place.
 
+The latest release, and the thesis PDF, can be downloaded from [here](../../releases/latest). 
+
 See the repository [wiki](../../wiki) for more details.
 
 ## Data retention
