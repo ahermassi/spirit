@@ -39,7 +39,7 @@ If necessary, it may be acquired by contacting Prof Takahiro Endo at the Mechatr
 
 ### Python
 Assumptions:
-* Linux system
+* Linux operating system
 
 The data analysis pipeline requires Python 3.6 or above.
 If you don't have it on your computer, you can obtain it using `pyenv`.
