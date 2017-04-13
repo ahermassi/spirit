@@ -8,14 +8,14 @@ This repository utilizes a slightly modified version of Driven Data's [data scie
 As a structure used by various projects, it should allow for easier reusability and sharing among groups.
 It also helps with the reproducability of the data pipleine, and the collection of all pieces in one place.
 
-See the repository <wiki> for more details.
+See the repository [wiki](../../wiki) for more details.
 
 ## Data retention
 Due to privacy requirements at Kyoto University, the data is not included in this repository.
 If necessary, it may be acquired by contacting Prof Takahiro Endo at the Mechatronics Laboratory at endo@me.kyoto-u.ac.jp.
 
 ## Contribution
-Suggested improvements and known bugs are on the [issues](issues) page.
+Suggested improvements and known bugs are on the [issues](../../issues) page.
 If you find something that interests you, submit your own issue, or create a pull request that I could merge.
 
 ## Licensing
