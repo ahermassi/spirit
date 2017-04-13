@@ -50,7 +50,7 @@ control:
     pitch: 1
     yaw: 2
     z: 3
-  scale:
+  scale:  # Multiplicative.
     roll: 1
     pitch: 1
     yaw: 1
