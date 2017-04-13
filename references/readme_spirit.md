@@ -64,6 +64,8 @@ In order to run the system:
   * [ ] Set appropriate values in the `config/launch_params.yaml` file. (Optional)
   * [ ] Regenerate the launch files: `config/regenerate_launch_files.py`.
 * [ ] Launch the system: `roslaunch spirit spirit.launch`.
+
+> **Note:** Regeneration and launch have been added into a `run` script.
 * [ ] <a name="checklist-collect-data" />If you want to collect data, start the collection according to the [data collection readme](readme_data.md#checklist).
 * [ ] Ensure that:
   * [ ] A live camera feed is displayed. (depends on configuration)
