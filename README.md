@@ -52,12 +52,10 @@ Once you have a virtualenv for the project, you can install the necessary packag
 
 ### Docker
 Assumptions:
-* Linux system (to share sound)
-* NVIDIA video card
+* Linux operating system
 
 Prerequisites:
 * Docker
-* [`nvidia-docker`](https://github.com/NVIDIA/nvidia-docker) (to use OpenGL)
 
 Build by running the `build` file in the base directory, and run it using by running the `run` file.
 
@@ -84,11 +82,6 @@ Install the following fonts and have them accessible by TeXLive:
 * IPA Mincho (明朝)
 
 Alternatively, change the font used in [`masastyle.sty`](reports/thesis/masastyle.sty#L64).
-
-### Troubleshooting
-
-* If you cannot `run` due to `nvidia-docker` complaining about an unsupported Docker version, either update `nvidia-docker` or downgrade Docker.
-
 
 ## Components
 This repository contains the four main components of the project, each with its own readme.

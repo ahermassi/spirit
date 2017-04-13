@@ -40,11 +40,6 @@ RUN apt-get install -y libxml2-dev
 RUN apt-get install -y libxslt1-dev
 RUN apt-get install -y zlib1g-dev
 
-# nvidia-docker hooks
-LABEL com.nvidia.volumes.needed="nvidia_driver"
-ENV PATH /usr/local/nvidia/bin:${PATH}
-ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
-
 WORKDIR /root/catkin_ws/src/spirit
 RUN apt-get install -y firefox
 RUN apt-get install -y ros-kinetic-rqt-graph
