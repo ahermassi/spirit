@@ -54,8 +54,8 @@ Once you have a virtualenv for the project, you can install the necessary packag
 Assumptions:
 * Linux operating system
 
-Prerequisites:
-* Docker
+Install Docker using the [official instructions](https://docs.docker.com/engine/installation/).
+If you want to avoid using `sudo`, follow the instructions on the [Linux Post-installation](https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user) page.
 
 Build by running the `build` file in the base directory, and run it using by running the `run` file.
 
