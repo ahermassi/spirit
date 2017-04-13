@@ -59,7 +59,8 @@ If you want to avoid using `sudo`, follow the instructions on the [Linux Post-in
 
 Build by running the `build` file in the base directory, and run it using by running the `run` file.
 
-Note that in Kyoto University, the proxy does not allow building, and until Docker allows network sharing, building must happen outside the university.
+> **Note:** In Kyoto University, building is impossible because of the KUINS proxy.
+> Until Docker allows network sharing, building must happen outside the university.
 
 Once a container has been built, you can use `docker ps` to find the currently running container, and save any new configurations using `docker commit`.
 Make sure to update the `run` file to reflect the container you want to run, and (ideally) add the changes to `Dockerfile`.
